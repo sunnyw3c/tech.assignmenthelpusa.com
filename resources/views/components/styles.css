@@ -1,0 +1,178 @@
+/* Custom CSS enhancements extending Tailwind CSS for Tech Solution */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --font-heading: 'Plus Jakarta Sans', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+body {
+  font-family: var(--font-body);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6, .font-heading {
+  font-family: var(--font-heading);
+}
+
+/* Glassmorphism Classes */
+.glass-panel {
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-card {
+  background: rgba(30, 41, 59, 0.5);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card:hover {
+  border-color: rgba(56, 189, 248, 0.4);
+  transform: translateY(-3px);
+  box-shadow: 0 20px 40px -15px rgba(14, 165, 233, 0.2);
+}
+
+/* Dynamic Ambient Glow Blobs */
+.ambient-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.35;
+}
+
+/* Custom Checkbox / Toggle Styling for Calculator */
+.calc-toggle-card input:checked + div {
+  border-color: #38bdf8;
+  background: rgba(56, 189, 248, 0.15);
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
+}
+
+/* ==================== LIGHT MODE GLOBAL OVERRIDES ==================== */
+html.light body,
+.light body {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+.light .ambient-blob {
+  opacity: 0.15;
+}
+
+.light .glass-panel {
+  background: rgba(255, 255, 255, 0.92) !important;
+  border-color: rgba(226, 232, 240, 0.9) !important;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
+}
+
+.light .glass-card {
+  background: #ffffff !important;
+  border-color: #e2e8f0 !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+}
+
+.light .glass-card:hover {
+  border-color: #0284c7 !important;
+  box-shadow: 0 20px 25px -5px rgba(2, 132, 199, 0.1);
+}
+
+/* Light Mode Text Overrides */
+.light h1, .light h2, .light h3, .light h4, .light h5, .light h6,
+.light .text-white {
+  color: #0f172a !important;
+}
+
+.light .text-slate-200,
+.light .text-slate-300 {
+  color: #334155 !important;
+}
+
+.light .text-slate-400 {
+  color: #64748b !important;
+}
+
+.light .bg-slate-900,
+.light .bg-slate-950,
+.light .bg-slate-950\/80,
+.light .bg-slate-900\/80,
+.light .bg-slate-900\/60 {
+  background-color: #ffffff !important;
+}
+
+.light footer {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+  color: #475569 !important;
+}
+
+.light footer h3,
+.light footer a {
+  color: #0f172a !important;
+}
+
+.light footer a:hover {
+  color: #0284c7 !important;
+}
+
+.light .border-slate-800,
+.light .border-slate-700,
+.light .border-slate-900,
+.light .border-slate-700\/60,
+.light .border-slate-700\/50 {
+  border-color: #cbd5e1 !important;
+}
+
+.light .calc-radio-card {
+  background-color: #f1f5f9 !important;
+  border-color: #cbd5e1 !important;
+}
+
+.light .calc-radio-card p.text-white {
+  color: #0f172a !important;
+}
+
+.light .calc-radio-card p.text-slate-400 {
+  color: #64748b !important;
+}
+
+.light .calc-toggle-card input:checked + div {
+  border-color: #0284c7 !important;
+  background: rgba(2, 132, 199, 0.08) !important;
+}
+
+.light input[type="text"],
+.light input[type="email"],
+.light input[type="tel"],
+.light textarea {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+.light ::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 4px;
+}
