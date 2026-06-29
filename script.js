@@ -57,55 +57,112 @@ function updateThemeIcons() {
 
 /* ==========================================
    2. Dynamic Pricing Calculator Engine
+   ==========================================
+   Pricing based on 2025 market research:
+   - Freelance web design: $3,000–$15,000
+   - Mobile apps: $5,000–$15,000+
+   - SEO retainer: $800–$2,000/mo
+   - Odoo ERP SMB: $5,000–$20,000
+   - IT/Cloud consulting: $1,500–$5,000+
    ========================================== */
+
+// Base prices reflect small/MVP scope for each service
 const SERVICE_PRICES = {
-  web: 1500,
-  app: 2800,
-  seo: 800,
-  odoo: 3500,
-  consulting: 1200
+  web_blog:     300,   // Blog & Publication — WordPress blog, up to 10 posts, basic theme
+  web_landing:  499,   // Landing Page — single page, fast delivery
+  web_business: 1499,  // Business Website — 5–10 pages, CMS, SEO ready
+  web_ecomm:    2999,  // E-commerce Store — WooCommerce/Laravel, payments
+  web_custom:   4999,  // Custom Web App — full-stack, APIs, dashboards
+  app:          5500,  // Mobile App (iOS & Android) — cross-platform Flutter
+  seo:          1200,  // SEO & Growth Suite — 3-month minimum campaign
+  odoo:         5000,  // Odoo ERP — core modules (CRM, Inventory, Accounting)
+  consulting:   2000   // IT & Cloud Architecture — discovery + roadmap
 };
 
+// Scale multipliers reflect real scope growth
 const SCALE_MULTIPLIERS = {
-  small: 1.0,
-  medium: 1.6,
-  enterprise: 2.5
+  small:      1.0,   // MVP / Core — minimal features, tight scope
+  medium:     1.75,  // Growth — full system, more integrations & pages
+  enterprise: 3.0    // Enterprise — high availability, custom SLA, team
 };
 
+// Urgency multipliers reflect resource dedication cost
 const URGENCY_MULTIPLIERS = {
-  standard: 1.0,
-  accelerated: 1.3,
-  rush: 1.6
+  standard:    1.0,   // 3–4 Weeks — normal sprint cycle
+  accelerated: 1.25,  // 2 Weeks — priority queue, extended hours
+  rush:        1.55   // 1 Week — dedicated team, round-the-clock delivery
+};
+
+// Human-readable labels for website sub-types
+const WEB_TYPE_LABELS = {
+  web_blog:     'Blog & Publication',
+  web_landing:  'Landing Page',
+  web_business: 'Business Website',
+  web_ecomm:    'E-commerce Store',
+  web_custom:   'Custom Web App'
 };
 
 function initCalculator() {
   const serviceCheckboxes = document.querySelectorAll('.calc-service-checkbox');
-  const scaleRadios = document.querySelectorAll('input[name="calc-scale"]');
-  const urgencyRadios = document.querySelectorAll('input[name="calc-urgency"]');
-  const priceDisplay = document.getElementById('calc-price-display');
-  const rangeDisplay = document.getElementById('calc-range-display');
+  const webTypeRadios     = document.querySelectorAll('input[name="calc-web-type"]');
+  const webTypeSection    = document.getElementById('calc-web-type-section');
+  const scaleRadios       = document.querySelectorAll('input[name="calc-scale"]');
+  const urgencyRadios     = document.querySelectorAll('input[name="calc-urgency"]');
+  const priceDisplay      = document.getElementById('calc-price-display');
+  const rangeDisplay      = document.getElementById('calc-range-display');
+  const breakdownList     = document.getElementById('calc-breakdown-list');
 
   if (!priceDisplay) return;
+
+  // Show/hide website type selector based on whether web is checked
+  function toggleWebTypeSection() {
+    const webCheckbox = document.querySelector('.calc-service-checkbox[data-service-group="web"]');
+    if (!webTypeSection) return;
+    if (webCheckbox && webCheckbox.checked) {
+      webTypeSection.classList.remove('hidden');
+    } else {
+      webTypeSection.classList.add('hidden');
+    }
+  }
 
   function calculateTotal() {
     let basePrice = 0;
     let selectedServices = [];
+    let breakdown = [];
 
     serviceCheckboxes.forEach(cb => {
-      if (cb.checked) {
-        basePrice += SERVICE_PRICES[cb.value] || 0;
+      if (!cb.checked) return;
+
+      if (cb.dataset.serviceGroup === 'web') {
+        // Find selected web sub-type
+        let webType = 'web_blog'; // default
+        webTypeRadios.forEach(r => { if (r.checked) webType = r.value; });
+        const price = SERVICE_PRICES[webType] || SERVICE_PRICES.web_blog;
+        const label = WEB_TYPE_LABELS[webType] || 'Website';
+        basePrice += price;
+        selectedServices.push(label);
+        breakdown.push({ label: `Website — ${label}`, price });
+      } else {
+        const price = SERVICE_PRICES[cb.value] || 0;
+        basePrice += price;
         selectedServices.push(cb.dataset.name);
+        breakdown.push({ label: cb.dataset.name, price });
       }
     });
 
-    // Fallback if no service selected
     if (basePrice === 0) {
-      basePrice = 1500;
+      basePrice = SERVICE_PRICES.web_blog;
+      breakdown.push({ label: 'Business Website (default)', price: basePrice });
     }
 
     let scaleMult = 1.0;
+    let scaleLabel = 'Small / MVP';
     scaleRadios.forEach(r => {
-      if (r.checked) scaleMult = SCALE_MULTIPLIERS[r.value] || 1.0;
+      if (r.checked) {
+        scaleMult = SCALE_MULTIPLIERS[r.value] || 1.0;
+        const labelMap = { small: 'MVP scope', medium: 'Growth scale (×1.75)', enterprise: 'Enterprise scale (×3.0)' };
+        scaleLabel = labelMap[r.value] || '';
+      }
     });
 
     let urgencyMult = 1.0;
@@ -113,14 +170,38 @@ function initCalculator() {
       if (r.checked) urgencyMult = URGENCY_MULTIPLIERS[r.value] || 1.0;
     });
 
-    const calculatedExact = Math.round(basePrice * scaleMult * urgencyMult);
-    const minEstimate = Math.round(calculatedExact * 0.9);
-    const maxEstimate = Math.round(calculatedExact * 1.15);
+    const subtotal        = Math.round(basePrice * scaleMult);
+    const calculatedExact = Math.round(subtotal * urgencyMult);
+    const minEstimate     = Math.round(calculatedExact * 0.9);
+    const maxEstimate     = Math.round(calculatedExact * 1.15);
 
-    // Format currency
+    // Render price
     priceDisplay.textContent = `$${calculatedExact.toLocaleString()}`;
     if (rangeDisplay) {
-      rangeDisplay.textContent = `Starting range: $${minEstimate.toLocaleString()} - $${maxEstimate.toLocaleString()}`;
+      rangeDisplay.textContent = `Estimated range: $${minEstimate.toLocaleString()} – $${maxEstimate.toLocaleString()}`;
+    }
+
+    // Render inline breakdown
+    if (breakdownList) {
+      breakdownList.innerHTML = '';
+      breakdown.forEach(item => {
+        const li = document.createElement('div');
+        li.className = 'flex justify-between text-xs text-slate-400 py-1 border-b border-slate-800/60';
+        li.innerHTML = `<span>${item.label}</span><span class="text-slate-300 font-medium">$${item.price.toLocaleString()}</span>`;
+        breakdownList.appendChild(li);
+      });
+      if (scaleMult !== 1.0) {
+        const li = document.createElement('div');
+        li.className = 'flex justify-between text-xs text-slate-400 py-1 border-b border-slate-800/60';
+        li.innerHTML = `<span>${scaleLabel}</span><span class="text-sky-400 font-medium">×${scaleMult}</span>`;
+        breakdownList.appendChild(li);
+      }
+      if (urgencyMult !== 1.0) {
+        const li = document.createElement('div');
+        li.className = 'flex justify-between text-xs text-slate-400 py-1';
+        li.innerHTML = `<span>Priority delivery surcharge</span><span class="text-amber-400 font-medium">×${urgencyMult}</span>`;
+        breakdownList.appendChild(li);
+      }
     }
 
     // Store estimate state on lock button
@@ -131,12 +212,45 @@ function initCalculator() {
     }
   }
 
+  // ── Active-state class management for radio cards ──────────────────────
+  // JS sets the class directly on the div so Tailwind CDN can't override it.
+  function syncRadioActiveStates(radioGroup) {
+    radioGroup.forEach(r => {
+      const card = r.nextElementSibling;
+      if (!card) return;
+      if (r.checked) {
+        card.classList.add('radio-card-active');
+      } else {
+        card.classList.remove('radio-card-active');
+      }
+    });
+  }
+
   // Event Listeners
-  serviceCheckboxes.forEach(cb => cb.addEventListener('change', calculateTotal));
-  scaleRadios.forEach(r => r.addEventListener('change', calculateTotal));
-  urgencyRadios.forEach(r => r.addEventListener('change', calculateTotal));
+  serviceCheckboxes.forEach(cb => {
+    cb.addEventListener('change', () => {
+      toggleWebTypeSection();
+      calculateTotal();
+    });
+  });
+  webTypeRadios.forEach(r => r.addEventListener('change', () => {
+    syncRadioActiveStates(webTypeRadios);
+    calculateTotal();
+  }));
+  scaleRadios.forEach(r => r.addEventListener('change', () => {
+    syncRadioActiveStates(scaleRadios);
+    calculateTotal();
+  }));
+  urgencyRadios.forEach(r => r.addEventListener('change', () => {
+    syncRadioActiveStates(urgencyRadios);
+    calculateTotal();
+  }));
 
   // Initial Run
+  toggleWebTypeSection();
+  syncRadioActiveStates(webTypeRadios);
+  syncRadioActiveStates(scaleRadios);
+  syncRadioActiveStates(urgencyRadios);
   calculateTotal();
 }
 

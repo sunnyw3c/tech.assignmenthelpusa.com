@@ -334,13 +334,44 @@ html.light .calc-toggle-card input:checked + div {
   background: rgba(2, 132, 199, 0.08) !important;
 }
 
-/* Active radio card state */
+/* Active radio card state — dark mode (default) */
+/* .radio-card-active is applied by JS applyActiveStates() — immune to re-render wipes */
+.radio-card-active,
+.calc-option-label input:checked ~ .calc-radio-card {
+  border-color: #38bdf8 !important;
+  background-color: rgba(56, 189, 248, 0.12) !important;
+  box-shadow: 0 0 0 1.5px rgba(56, 189, 248, 0.55), 0 0 18px rgba(56, 189, 248, 0.18) !important;
+  transform: translateY(-2px);
+  position: relative;
+  overflow: hidden;
+}
+
+.radio-card-active::before,
+.calc-option-label input:checked ~ .calc-radio-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #38bdf8, #818cf8);
+  border-radius: 12px 12px 0 0;
+}
+
+/* Active radio card — light mode */
+html.light .radio-card-active,
 html.light .calc-option-label input:checked ~ .calc-radio-card,
 html.light .calc-radio-card.active {
   border-color: #0284c7 !important;
-  background: #eff6ff !important;
-  box-shadow: 0 0 0 2px rgba(2,132,199,0.15) !important;
+  background-color: #eff6ff !important;
+  box-shadow: 0 0 0 2px rgba(2,132,199,0.2), 0 0 14px rgba(2,132,199,0.12) !important;
+  transform: translateY(-2px);
 }
+
+html.light .radio-card-active::before,
+html.light .calc-option-label input:checked ~ .calc-radio-card::before {
+  background: linear-gradient(90deg, #0284c7, #6366f1);
+}
+
+
 
 /* ---------- Form Inputs ---------- */
 html.light input[type="text"],

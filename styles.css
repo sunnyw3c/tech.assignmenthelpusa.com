@@ -79,6 +79,59 @@ h1, h2, h3, h4, h5, h6, .font-heading {
   box-shadow: 0 0 15px rgba(2, 132, 199, 0.15);
 }
 
+/* Check icon — hidden by default, shown when checkbox is checked */
+.calc-toggle-card input + div .check-icon {
+  opacity: 0.25;
+}
+.calc-toggle-card input:checked + div .check-icon {
+  opacity: 1;
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.15);
+  border-color: #38bdf8;
+}
+
+/* Radio Card — Selected / Active State */
+/* Class is applied by JS (syncRadioActiveStates) so Tailwind CDN cannot override */
+.calc-radio-card {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.radio-card-active {
+  border-color: #38bdf8 !important;
+  background-color: rgba(56, 189, 248, 0.13) !important;
+  box-shadow: 0 0 0 1.5px rgba(56, 189, 248, 0.6), 0 0 20px rgba(56, 189, 248, 0.2) !important;
+  transform: translateY(-2px);
+}
+
+.radio-card-active::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #38bdf8, #818cf8);
+  border-radius: 12px 12px 0 0;
+}
+
+.radio-card-active p:first-child {
+  color: #ffffff !important;
+}
+
+/* Light mode */
+.light .radio-card-active {
+  border-color: #0284c7 !important;
+  background-color: rgba(2, 132, 199, 0.09) !important;
+  box-shadow: 0 0 0 1.5px rgba(2, 132, 199, 0.5), 0 0 15px rgba(2, 132, 199, 0.15) !important;
+}
+
+.light .radio-card-active::before {
+  background: linear-gradient(90deg, #0284c7, #6366f1);
+}
+
+
 /* Smooth Scrolling */
 html {
   scroll-behavior: smooth;

@@ -1,51 +1,136 @@
 @extends('layouts.app')
 
-@section('title', 'Custom Web Development | Laravel & React Enterprise Engineering - Tech Solution')
-@section('meta_description', 'High-speed, scalable web applications built on Laravel, React, Vue, and Inertia. Engineered for conversion and top Core Web Vitals scores.')
+@section('title', 'Web Development Services Provider | Custom Websites & Web Apps - Tech Solution')
+@section('meta_description', 'Compare who provides web development services and choose Tech Solution for custom websites, Laravel and React web apps, ecommerce, CMS, APIs, SEO, security, and support.')
 
 @section('content')
 
-<!-- Service Header Banner (Compact & Balanced Sizing) -->
 <section class="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto relative z-10">
   <div class="glass-panel rounded-2xl p-6 sm:p-12 border border-sky-500/30 shadow-xl relative overflow-hidden">
-    <div class="max-w-2xl">
+    <div class="max-w-3xl">
       <span class="px-3 py-1 rounded-full bg-sky-500/10 text-sky-400 text-xs font-bold uppercase tracking-wider border border-sky-500/20 mb-4 inline-block">
-        Custom Web Engineering
+        Web Development Service Provider
       </span>
       <h1 class="font-heading text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-4">
-        Custom Laravel & <span class="text-gradient">React Platforms</span>
+        Web Development Services for <span class="text-gradient">Websites, Stores & Apps</span>
       </h1>
       <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
-        Architecting enterprise-grade web applications engineered for sub-second page loads, complex workflow automation, and maximum buyer conversion.
+        Businesses can hire freelancers, website builders, ecommerce specialists, or full-service agencies for web development. Tech Solution is the full-service partner for projects that need strategy, UI/UX, Laravel and React engineering, SEO-ready content structure, security, integrations, launch support, and ongoing improvement.
       </p>
       <a href="#calculator" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-sky-400 to-indigo-500 text-slate-950 font-bold text-xs uppercase tracking-wider shadow-lg hover:scale-105 transition-all">
-        Calculate Web Scope & ROI
+        Plan My Web Project
       </a>
     </div>
   </div>
 </section>
 
-<!-- Deep Breakdown Section (Strict H2, H3 Hierarchy) -->
 <section class="py-8 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto relative z-10">
-  <h2 class="sr-only">Core Engineering Capabilities</h2>
+  <div class="mb-6 max-w-3xl">
+    <span class="px-3 py-1 rounded-full bg-slate-800/80 text-sky-300 text-[11px] font-bold uppercase tracking-wider border border-slate-700 mb-3 inline-block">
+      Buyer Guide
+    </span>
+    <h2 class="font-heading text-2xl sm:text-3xl font-bold text-white tracking-tight mb-3">
+      Who Provides Web Development Services?
+    </h2>
+    <p class="text-slate-400 text-sm leading-relaxed">
+      The right provider depends on budget, timeline, technical risk, and how much ownership you need after launch. Here is how the main options compare.
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+    <div class="glass-card rounded-2xl p-6">
+      <h3 class="font-heading text-lg font-bold text-white mb-2">Freelance Developers</h3>
+      <p class="text-slate-400 text-xs leading-relaxed">
+        Best for small landing pages, theme fixes, single features, and budget-led tasks where you can manage scope, QA, hosting, and maintenance.
+      </p>
+    </div>
+    <div class="glass-card rounded-2xl p-6">
+      <h3 class="font-heading text-lg font-bold text-white mb-2">Website Builders</h3>
+      <p class="text-slate-400 text-xs leading-relaxed">
+        Wix, Webflow, and WordPress studios work well for fast marketing sites, blogs, and CMS pages when custom business logic is limited.
+      </p>
+    </div>
+    <div class="glass-card rounded-2xl p-6">
+      <h3 class="font-heading text-lg font-bold text-white mb-2">Ecommerce Specialists</h3>
+      <p class="text-slate-400 text-xs leading-relaxed">
+        Shopify and WooCommerce partners focus on catalogs, checkout, payments, inventory, analytics, product pages, and conversion optimization.
+      </p>
+    </div>
+    <div class="glass-card rounded-2xl p-6">
+      <h3 class="font-heading text-lg font-bold text-white mb-2">Full-Service Agencies</h3>
+      <p class="text-slate-400 text-xs leading-relaxed">
+        Agencies handle discovery, UX, frontend, backend, integrations, testing, deployment, security, content structure, and long-term support.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="py-8 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto relative z-10">
+  <div class="mb-6 max-w-3xl">
+    <span class="px-3 py-1 rounded-full bg-sky-500/10 text-sky-400 text-[11px] font-bold uppercase tracking-wider border border-sky-500/20 mb-3 inline-block">
+      Tech Solution Delivery
+    </span>
+    <h2 class="font-heading text-2xl sm:text-3xl font-bold text-white tracking-tight mb-3">
+      What Our Web Development Service Includes
+    </h2>
+    <p class="text-slate-400 text-sm leading-relaxed">
+      We build websites and web applications for companies that need more than a template: clean architecture, measurable performance, secure workflows, and a site that can keep growing after launch.
+    </p>
+  </div>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
     <div class="glass-card rounded-2xl p-6">
-      <h3 class="font-heading text-lg font-bold text-white mb-2">Laravel Ecosystem Mastery</h3>
+      <h3 class="font-heading text-lg font-bold text-white mb-2">Discovery & Conversion UX</h3>
       <p class="text-slate-400 text-xs leading-relaxed">
-        Modern Laravel Blade components, Livewire, and Inertia.js for fast, interactive user interfaces with enterprise security.
+        Sitemap planning, buyer journey mapping, responsive interface design, copy structure, and call-to-action flow built around lead generation or sales.
       </p>
     </div>
     <div class="glass-card rounded-2xl p-6">
-      <h3 class="font-heading text-lg font-bold text-white mb-2">Core Web Vitals Optimization</h3>
+      <h3 class="font-heading text-lg font-bold text-white mb-2">Custom Laravel & React Build</h3>
       <p class="text-slate-400 text-xs leading-relaxed">
-        Achieve 95+ performance scores on Google PageSpeed Insights through server-side caching and asset bundling strategies.
+        Business websites, CMS platforms, ecommerce stores, dashboards, booking systems, customer portals, REST APIs, and third-party integrations.
       </p>
     </div>
     <div class="glass-card rounded-2xl p-6">
-      <h3 class="font-heading text-lg font-bold text-white mb-2">High-Throughput REST APIs</h3>
+      <h3 class="font-heading text-lg font-bold text-white mb-2">Launch, Security & Growth</h3>
       <p class="text-slate-400 text-xs leading-relaxed">
-        Clean, versioned API integrations ready for mobile apps, third-party payment gateways, and enterprise microservices.
+        Core Web Vitals tuning, technical SEO setup, analytics, secure forms, role-based access, deployment, backups, bug fixing, and maintenance.
       </p>
+    </div>
+  </div>
+</section>
+
+<section class="py-8 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto relative z-10">
+  <div class="glass-panel rounded-2xl p-6 sm:p-8 border border-slate-700/80 shadow-xl">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+      <div class="lg:col-span-5">
+        <span class="px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-300 text-[11px] font-bold uppercase tracking-wider border border-indigo-500/20 mb-3 inline-block">
+          Best Fit
+        </span>
+        <h2 class="font-heading text-2xl sm:text-3xl font-bold text-white tracking-tight mb-3">
+          Choose Tech Solution When Your Website Must Work Like a Business System
+        </h2>
+        <p class="text-slate-400 text-sm leading-relaxed">
+          Our strongest fit is a custom website or web app where design, content, integrations, speed, and support all need one accountable team.
+        </p>
+      </div>
+      <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div class="rounded-xl border border-slate-700/80 bg-slate-900/60 p-4">
+          <h3 class="text-sm font-bold text-white mb-1">Business Website Rebuild</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">Modernize an outdated site with faster pages, stronger service pages, clear conversion paths, and editable content.</p>
+        </div>
+        <div class="rounded-xl border border-slate-700/80 bg-slate-900/60 p-4">
+          <h3 class="text-sm font-bold text-white mb-1">Custom Web Application</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">Build dashboards, portals, internal tools, booking flows, SaaS products, or workflow automation on a scalable stack.</p>
+        </div>
+        <div class="rounded-xl border border-slate-700/80 bg-slate-900/60 p-4">
+          <h3 class="text-sm font-bold text-white mb-1">Ecommerce & Payments</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">Launch product catalogs, checkout flows, payment gateways, order management, coupons, and analytics tracking.</p>
+        </div>
+        <div class="rounded-xl border border-slate-700/80 bg-slate-900/60 p-4">
+          <h3 class="text-sm font-bold text-white mb-1">Ongoing Web Support</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">Keep the site secure, updated, backed up, monitored, optimized, and ready for new campaigns or product changes.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>

@@ -270,6 +270,9 @@ function initWebCalculator() {
   const step2Container = document.getElementById('step-2-options-container');
   const step2Title = document.getElementById('step-2-title');
 
+  // Track the currently rendered Step-2 branch so we don't re-wipe it on every recalc
+  let currentBranch = null;
+
   function renderStep2(branchKey) {
     if (!step2Container) return;
     const options = STEP2_BRANCH_OPTIONS[branchKey] || STEP2_BRANCH_OPTIONS['business'];
@@ -287,8 +290,36 @@ function initWebCalculator() {
       </label>
     `).join('');
     if (step2Title) step2Title.textContent = `Recommended Engine for ${branchKey.toUpperCase()}`;
-    step2Container.querySelectorAll('input[name="web-tech"]').forEach(i => i.addEventListener('change', recalc));
+
+    // Re-attach listeners on freshly rendered inputs
+    step2Container.querySelectorAll('input[name="web-tech"]').forEach(radio => {
+      radio.addEventListener('change', () => {
+        // Apply active state immediately on this group before full recalc
+        applyActiveStates(step2Container);
+        recalc();
+      });
+    });
+
+    // Apply active visual state to any already-checked card in this group
+    applyActiveStates(step2Container);
   }
+
+  // Applies the radio-card-active class within a container based on :checked state
+  function applyActiveStates(container) {
+    container.querySelectorAll('.calc-option-label').forEach(label => {
+      const radio = label.querySelector('input[type="radio"]');
+      const card  = label.querySelector('.calc-radio-card');
+      if (!radio || !card) return;
+      if (radio.checked) {
+        card.classList.add('radio-card-active');
+      } else {
+        card.classList.remove('radio-card-active');
+      }
+    });
+    // Also run global inline-style updater for theme awareness
+    updateVisualActiveStates();
+  }
+
 
   function recalc() {
     let baseSum = 0;
@@ -309,7 +340,15 @@ function initWebCalculator() {
       breakdownItems.push({ label: 'Project Type: ' + (typeInput.parentElement.querySelector('.font-bold') || typeInput.parentElement).textContent?.trim().split('\n')[0], price });
       answeredCount++;
       revealStep(step2);
-      renderStep2(typeInput.value);
+      // Only re-render Step 2 cards when the website type actually changes.
+      // Re-rendering every recalc() call wiped innerHTML and destroyed the selection.
+      if (typeInput.value !== currentBranch) {
+        currentBranch = typeInput.value;
+        renderStep2(typeInput.value);
+      } else {
+        // Branch unchanged — just re-apply active state so selection stays visible
+        if (step2Container) applyActiveStates(step2Container);
+      }
       updateProgressDots(progressBar, 2);
     }
     if (techInput) {
