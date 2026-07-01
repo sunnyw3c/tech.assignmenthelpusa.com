@@ -29,7 +29,11 @@ Route::prefix('services')->group(function () {
         return view('pages.services.odoo-erp');
     });
 
-    Route::get('/it-consulting', function () {
-        return view('pages.services.it-consulting');
+    Route::get('/ai-automation', function () {
+        return view('pages.services.ai-automation');
+    });
+
+    Route::get('/cloud-computing', function () {
+        return view('pages.services.cloud-computing');
     });
 });

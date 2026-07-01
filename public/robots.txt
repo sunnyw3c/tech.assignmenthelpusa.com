@@ -1,2 +1,7 @@
 User-agent: *
-Disallow:
+Disallow: /storage/
+Disallow: /.env
+Disallow: /vendor/
+Allow: /
+
+Sitemap: {{ config('app.url') }}/sitemap.xml

@@ -87,16 +87,41 @@
       <p class="text-xs text-slate-400 mt-0.5">PageSpeed Target</p>
     </div>
     <div class="p-3.5 rounded-xl glass-card">
-      <p class="font-heading text-2xl font-bold text-indigo-400 stat-counter" data-target="5">0</p>
-      <p class="text-xs text-slate-400 mt-0.5">Core Service Pillars</p>
+      <p class="font-heading text-2xl font-bold text-indigo-400 stat-counter" data-target="50" data-suffix="+">0</p>
+      <p class="text-xs text-slate-400 mt-0.5">Projects Delivered</p>
     </div>
     <div class="p-3.5 rounded-xl glass-card">
-      <p class="font-heading text-2xl font-bold text-purple-400 stat-counter" data-target="30" data-suffix="+">0</p>
-      <p class="text-xs text-slate-400 mt-0.5">Launch Checklist Items</p>
+      <p class="font-heading text-2xl font-bold text-purple-400 stat-counter" data-target="3" data-suffix="x">0</p>
+      <p class="text-xs text-slate-400 mt-0.5">Avg Organic Traffic Growth</p>
     </div>
     <div class="p-3.5 rounded-xl glass-card">
       <p class="font-heading text-2xl font-bold text-emerald-400 stat-counter" data-target="24" data-suffix="/7">0</p>
       <p class="text-xs text-slate-400 mt-0.5">Async Delivery Support</p>
+    </div>
+  </div>
+</section>
+
+<!-- Hero Dashboard Preview -->
+<section class="px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto relative z-10 -mt-4 pb-4">
+  <div class="rounded-2xl overflow-hidden border border-slate-700/60 shadow-2xl shadow-sky-500/10 relative group">
+    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent z-10 pointer-events-none"></div>
+    <img
+      src="{{ asset('images/hero/home-hero.png') }}"
+      alt="Tech Solution dashboard — Laravel web development, mobile app, and SEO analytics platform built for growing businesses"
+      class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+      width="1200"
+      height="675"
+      loading="eager"
+      decoding="async"
+    />
+    <div class="absolute bottom-4 left-4 right-4 z-20 flex items-center justify-between">
+      <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-900/90 backdrop-blur-sm border border-slate-700/60 text-xs text-slate-300">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        Live Platform Preview
+      </span>
+      <a href="#services" class="px-3 py-1.5 rounded-full bg-sky-500/20 backdrop-blur-sm border border-sky-500/30 text-xs text-sky-400 font-semibold hover:bg-sky-500/30 transition-all">
+        Explore Services →
+      </a>
     </div>
   </div>
 </section>
@@ -216,7 +241,7 @@
         <h3 class="font-heading text-xl font-bold text-white mb-2">AI Automation &amp; Cloud Consulting</h3>
         <p class="text-slate-400 text-xs leading-relaxed mb-4">Process automation, AI-assisted workflows, AWS/GCP deployments, CI/CD pipelines, monitoring, backup plans, and cloud cost optimization.</p>
       </div>
-      <a href="{{ url('/services/it-consulting') }}" class="inline-flex items-center gap-1.5 text-xs font-semibold text-amber-400 hover:text-amber-300">View cloud service &rarr;</a>
+      <a href="{{ url('/services/ai-automation') }}" class="inline-flex items-center gap-1.5 text-xs font-semibold text-amber-400 hover:text-amber-300">View AI Automation service &rarr;</a>
     </div>
 
     <div class="glass-card rounded-2xl p-6 flex flex-col justify-between group">

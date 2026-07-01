@@ -3,6 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Performance: Preconnect to external origins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdn.tailwindcss.com" />
   <title>@yield('title', 'Tech Solution | Global High-Performance Digital Agency')</title>
   <meta name="description" content="@yield('meta_description', 'Tech Solution delivers custom website development, mobile apps, SEO optimization, and enterprise Odoo ERP solutions engineered for global scale.')" />
   <link rel="canonical" href="@yield('canonical', url()->current())" />
@@ -10,9 +15,13 @@
   <meta property="og:title" content="@yield('title', 'Tech Solution | Global High-Performance Digital Agency')" />
   <meta property="og:description" content="@yield('meta_description', 'Tech Solution delivers custom website development, mobile apps, SEO optimization, and enterprise Odoo ERP solutions engineered for global scale.')" />
   <meta property="og:url" content="@yield('canonical', url()->current())" />
-  <meta name="twitter:card" content="summary" />
+  <meta property="og:image" content="@yield('og_image', asset('images/og/og-default.jpg'))" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="@yield('title', 'Tech Solution | Global High-Performance Digital Agency')" />
   <meta name="twitter:description" content="@yield('meta_description', 'Tech Solution delivers custom website development, mobile apps, SEO optimization, and enterprise Odoo ERP solutions engineered for global scale.')" />
+  <meta name="twitter:image" content="@yield('og_image', asset('images/og/og-default.jpg'))" />
 
   <!-- Tailwind CSS via CDN with custom config -->
   <script src="https://cdn.tailwindcss.com"></script>

@@ -11,6 +11,11 @@
       <span class="px-3 py-1 rounded-full bg-sky-500/10 text-sky-400 text-xs font-bold uppercase tracking-wider border border-sky-500/20 mb-4 inline-block">
         Web Development Service Provider
       </span>
+      <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+        <a href="{{ url('/') }}">Home</a>
+        <span class="sep">/</span>
+        <span class="current">Web Development</span>
+      </nav>
       <h1 class="font-heading text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-4">
         Web Development Services for <span class="text-gradient">Websites, Stores & Apps</span>
       </h1>
@@ -20,6 +25,16 @@
       <a href="#calculator" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-sky-400 to-indigo-500 text-slate-950 font-bold text-xs uppercase tracking-wider shadow-lg hover:scale-105 transition-all">
         Plan My Web Project
       </a>
+    </div>
+    <!-- Service Hero Image -->
+    <div class="mt-8 rounded-xl overflow-hidden border border-sky-500/20 shadow-xl shadow-sky-500/10">
+      <img
+        src="{{ asset('images/services/web-development.png') }}"
+        alt="Custom Laravel web development — code editor and website dashboard built by Tech Solution"
+        class="w-full h-auto object-cover"
+        width="1200" height="600"
+        loading="eager" decoding="async"
+      />
     </div>
   </div>
 </section>
@@ -135,7 +150,38 @@
   </div>
 </section>
 
-<!-- Dedicated Web Calculator Component -->
+{{-- Related Services Section --}}
+<section class="py-10 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto relative z-10">
+  <div class="text-center mb-6">
+    <p class="text-xs font-bold uppercase tracking-widest text-sky-400 mb-1">Explore More</p>
+    <h2 class="font-heading text-xl sm:text-2xl font-bold text-white">Services That Work Best Together</h2>
+  </div>
+  <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+    <a href="{{ url('/services/mobile-apps') }}" class="related-service-card group">
+      <p class="rs-label text-indigo-400">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>
+        Mobile App Development →
+      </p>
+      <p class="rs-desc">Extend your web platform with a native iOS &amp; Android app powered by the same Laravel backend.</p>
+    </a>
+    <a href="{{ url('/services/seo-optimization') }}" class="related-service-card group">
+      <p class="rs-label text-purple-400">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
+        SEO Optimization →
+      </p>
+      <p class="rs-desc">Get your newly built site ranking on Google with technical SEO, schema markup, and Core Web Vitals tuning.</p>
+    </a>
+    <a href="{{ url('/services/ai-automation') }}" class="related-service-card group">
+      <p class="rs-label text-violet-400">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17H3a2 2 0 01-2-2V5a2 2 0 012-2h16a2 2 0 012 2v10a2 2 0 01-2 2h-2" /></svg>
+        AI Automation →
+      </p>
+      <p class="rs-desc">Automate repetitive workflows inside your web application with AI-powered pipelines and integrations.</p>
+    </a>
+  </div>
+</section>
+
+{{-- Dedicated Web Calculator Component --}}
 @include('components.calculators.web-calculator')
 
 @endsection

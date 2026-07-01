@@ -71,13 +71,23 @@
               </div>
             </a>
 
-            <a href="{{ url('/services/it-consulting') }}" class="flex items-center gap-3 p-2.5 rounded-xl nav-dropdown-item transition-colors group/item">
+            <a href="{{ url('/services/ai-automation') }}" class="flex items-center gap-3 p-2.5 rounded-xl nav-dropdown-item transition-colors group/item">
+              <div class="w-8 h-8 rounded-lg bg-violet-500/10 text-violet-400 flex items-center justify-center group-hover/item:scale-110 transition-transform">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17H3a2 2 0 01-2-2V5a2 2 0 012-2h16a2 2 0 012 2v10a2 2 0 01-2 2h-2" /></svg>
+              </div>
+              <div>
+                <p class="text-xs font-bold nav-dropdown-title group-hover/item:text-violet-400 transition-colors">AI Automation</p>
+                <p class="text-[10px] text-slate-400">LLM, Chatbots &amp; Workflows</p>
+              </div>
+            </a>
+
+            <a href="{{ url('/services/cloud-computing') }}" class="flex items-center gap-3 p-2.5 rounded-xl nav-dropdown-item transition-colors group/item">
               <div class="w-8 h-8 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center group-hover/item:scale-110 transition-transform">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 001-9.999 5.002 5.002 0 00-9.78 2.096A4.001 4.001 0 003 15z" /></svg>
               </div>
               <div>
-                <p class="text-xs font-bold nav-dropdown-title group-hover/item:text-amber-400 transition-colors">IT &amp; Cloud Consulting</p>
-                <p class="text-[10px] text-slate-400">AWS, GCP &amp; DevOps CI/CD</p>
+                <p class="text-xs font-bold nav-dropdown-title group-hover/item:text-amber-400 transition-colors">Cloud &amp; DevOps</p>
+                <p class="text-[10px] text-slate-400">AWS, GCP &amp; CI/CD Pipelines</p>
               </div>
             </a>
 
@@ -143,7 +153,8 @@
         <a href="{{ url('/services/mobile-apps') }}" class="mobile-nav-link block text-sm nav-link hover:text-white pl-2">Mobile App Dev</a>
         <a href="{{ url('/services/seo-optimization') }}" class="mobile-nav-link block text-sm nav-link hover:text-white pl-2">SEO Optimization</a>
         <a href="{{ url('/services/odoo-erp') }}" class="mobile-nav-link block text-sm nav-link hover:text-white pl-2">Odoo ERP Modules</a>
-        <a href="{{ url('/services/it-consulting') }}" class="mobile-nav-link block text-sm nav-link hover:text-white pl-2">IT &amp; Cloud Consulting</a>
+        <a href="{{ url('/services/ai-automation') }}" class="mobile-nav-link block text-sm nav-link hover:text-white pl-2">AI Automation</a>
+        <a href="{{ url('/services/cloud-computing') }}" class="mobile-nav-link block text-sm nav-link hover:text-white pl-2">Cloud &amp; DevOps</a>
       </div>
       <a href="{{ url('/#calculator') }}" class="mobile-nav-link nav-link hover:text-sky-400">Price Calculator</a>
       <a href="{{ url('/#cases') }}" class="mobile-nav-link nav-link hover:text-sky-400">Portfolio &amp; Cases</a>
