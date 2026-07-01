@@ -26,15 +26,15 @@
         <h3 class="font-bold footer-heading text-xs uppercase tracking-wider mb-3">Company</h3>
         <ul class="space-y-2 text-xs footer-muted">
           <li><a href="{{ url('/#calculator') }}" class="footer-link hover:text-sky-400 transition-colors">Dynamic Cost Estimator</a></li>
-          <li><a href="{{ url('/#cases') }}" class="footer-link hover:text-sky-400 transition-colors">Global Case Studies</a></li>
-          <li><a href="{{ url('/#global') }}" class="footer-link hover:text-sky-400 transition-colors">Global Reach &amp; Hubs</a></li>
-          <li><a href="{{ url('/#contact') }}" class="footer-link hover:text-sky-400 transition-colors">Lock in Estimate</a></li>
+          <li><a href="{{ url('/#cases') }}" class="footer-link hover:text-sky-400 transition-colors">Project Types &amp; Use Cases</a></li>
+          <li><a href="{{ url('/#global') }}" class="footer-link hover:text-sky-400 transition-colors">Global Delivery</a></li>
+          <li><a href="{{ url('/#faq') }}" class="footer-link hover:text-sky-400 transition-colors">Project FAQs</a></li>
         </ul>
       </div>
 
       <div>
         <h3 class="font-bold footer-heading text-xs uppercase tracking-wider mb-3">Global Operations</h3>
-        <p class="text-xs footer-muted mb-3">Operating 24/7 across New York, London, Singapore, and Dubai.</p>
+        <p class="text-xs footer-muted mb-3">Remote-first delivery for teams across the US, UK, UAE, India, and Singapore.</p>
         <span class="inline-block px-3 py-1 rounded-md footer-status-badge text-sky-400 text-[11px] font-mono">
           status: all_systems_operational
         </span>

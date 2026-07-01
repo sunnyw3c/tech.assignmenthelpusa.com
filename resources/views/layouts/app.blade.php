@@ -5,6 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>@yield('title', 'Tech Solution | Global High-Performance Digital Agency')</title>
   <meta name="description" content="@yield('meta_description', 'Tech Solution delivers custom website development, mobile apps, SEO optimization, and enterprise Odoo ERP solutions engineered for global scale.')" />
+  <link rel="canonical" href="@yield('canonical', url()->current())" />
+  <meta property="og:type" content="@yield('og_type', 'website')" />
+  <meta property="og:title" content="@yield('title', 'Tech Solution | Global High-Performance Digital Agency')" />
+  <meta property="og:description" content="@yield('meta_description', 'Tech Solution delivers custom website development, mobile apps, SEO optimization, and enterprise Odoo ERP solutions engineered for global scale.')" />
+  <meta property="og:url" content="@yield('canonical', url()->current())" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="@yield('title', 'Tech Solution | Global High-Performance Digital Agency')" />
+  <meta name="twitter:description" content="@yield('meta_description', 'Tech Solution delivers custom website development, mobile apps, SEO optimization, and enterprise Odoo ERP solutions engineered for global scale.')" />
 
   <!-- Tailwind CSS via CDN with custom config -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -39,6 +47,7 @@
 
   <!-- Custom CSS Enhancements -->
   <link rel="stylesheet" href="{{ asset('css/styles.css') }}" />
+  @stack('head')
   @stack('styles')
 </head>
 <body class="bg-slate-950 text-slate-100 dark:bg-slate-950 dark:text-slate-100 light:bg-slate-50 light:text-slate-900 transition-colors duration-300 relative selection:bg-sky-500 selection:text-white">

@@ -91,7 +91,7 @@
       </a>
       <a href="{{ url('/#cases') }}" class="nav-link hover:text-sky-400 transition-colors">Portfolio</a>
       <a href="{{ url('/#global') }}" class="nav-link hover:text-sky-400 transition-colors">Global Reach</a>
-      <a href="{{ url('/#testimonials') }}" class="nav-link hover:text-sky-400 transition-colors">Reviews</a>
+      <a href="{{ url('/#faq') }}" class="nav-link hover:text-sky-400 transition-colors">FAQ</a>
     </nav>
 
     <!-- Right Actions: Theme Switcher + Main CTA -->
@@ -148,6 +148,7 @@
       <a href="{{ url('/#calculator') }}" class="mobile-nav-link nav-link hover:text-sky-400">Price Calculator</a>
       <a href="{{ url('/#cases') }}" class="mobile-nav-link nav-link hover:text-sky-400">Portfolio &amp; Cases</a>
       <a href="{{ url('/#global') }}" class="mobile-nav-link nav-link hover:text-sky-400">Global Reach</a>
+      <a href="{{ url('/#faq') }}" class="mobile-nav-link nav-link hover:text-sky-400">FAQ</a>
     </nav>
   </div>
   <div class="pt-6 border-t mobile-drawer-border">
