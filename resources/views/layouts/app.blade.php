@@ -77,7 +77,7 @@
   @include('components.footer')
 
   <!-- Main JavaScript Logic -->
-  <script src="{{ asset('js/script.js') }}"></script>
+  <script src="{{ asset('js/script.js') }}?v={{ time() }}"></script>
   @stack('scripts')
 </body>
 </html>
