@@ -55,73 +55,153 @@
 
 @section('content')
 
-<!-- 1. HERO SECTION -->
-<section class="relative py-12 sm:py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto text-center z-10">
-  <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-panel border border-sky-500/20 text-sky-400 text-xs font-medium mb-6 shadow-md">
-    <span class="w-2 h-2 rounded-full bg-emerald-400 pulse-dot"></span>
-    <span>Search-ready product engineering for web, mobile, SEO, AI, and ERP</span>
-  </div>
+<!-- 1. FUTURISTIC HOLOGRAPHIC HERO SECTION -->
+<section class="hero-futuristic-container w-full z-10">
+  <div class="hero-glow-blob-1"></div>
+  <div class="hero-glow-blob-2"></div>
+  <div class="hero-glow-blob-3"></div>
 
-  <h1 class="font-heading text-3xl sm:text-5xl font-extrabold tracking-tight text-white dark:text-white light:text-slate-900 leading-tight mb-4 max-w-5xl mx-auto">
-    Laravel Web Development, Mobile Apps, SEO &amp; Odoo ERP Built to <span class="text-gradient">Rank and Convert</span>
-  </h1>
+  <div class="hero-futuristic-grid">
+    <!-- Left Side: Marketing Content -->
+    <div class="flex flex-col justify-center text-left max-w-2xl mx-auto lg:mx-0">
+      <div class="flex justify-center lg:justify-start">
+        <span class="trust-pill">
+          <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping"></span>
+          24/7 Global IT Support
+        </span>
+      </div>
 
-  <p class="max-w-3xl mx-auto text-sm sm:text-base text-slate-400 dark:text-slate-400 light:text-slate-600 leading-relaxed mb-8">
-    Tech Solution helps startups, service businesses, ecommerce teams, and enterprise operators launch fast websites, custom Laravel applications, Flutter mobile apps, technical SEO systems, AI automations, and Odoo workflows that support measurable traffic, leads, and revenue.
-  </p>
+      <h1 class="font-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight mb-6 text-center lg:text-left">
+        Reliable Tech Support for a <span class="text-gradient">Connected World</span>
+      </h1>
 
-  <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-12">
-    <a href="#calculator" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-gradient-to-r from-sky-500 via-indigo-600 to-purple-600 hover:from-sky-400 hover:to-purple-500 text-white font-semibold text-sm shadow-lg shadow-sky-500/20 transition-all flex items-center justify-center gap-2 group">
-      <span>Estimate Your Project</span>
-      <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7-7 7M3 12h18" /></svg>
-    </a>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0 text-center lg:text-left">
+        Get fast, secure, and professional IT support for your business with remote assistance, cybersecurity protection, cloud services, and 24/7 technical help.
+      </p>
 
-    <a href="#services" class="w-full sm:w-auto px-6 py-3 rounded-xl glass-panel text-slate-200 font-semibold text-sm hover:bg-slate-800/80 transition-all flex items-center justify-center gap-2">
-      <span>Explore Services</span>
-    </a>
-  </div>
-
-  <div class="pt-8 border-t border-slate-800/60 grid grid-cols-2 md:grid-cols-4 gap-4 text-left">
-    <div class="p-3.5 rounded-xl glass-card">
-      <p class="font-heading text-2xl font-bold text-sky-400 stat-counter" data-target="95" data-suffix="+">0</p>
-      <p class="text-xs text-slate-400 mt-0.5">PageSpeed Target</p>
+      <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+        <a href="#contact" class="w-full sm:w-auto btn-futuristic-primary text-center justify-center">
+          <span>Get Support Now</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7-7 7M3 12h18" /></svg>
+        </a>
+        <a href="#services" class="w-full sm:w-auto btn-futuristic-secondary text-center justify-center">
+          <span>View Services</span>
+        </a>
+      </div>
     </div>
-    <div class="p-3.5 rounded-xl glass-card">
-      <p class="font-heading text-2xl font-bold text-indigo-400 stat-counter" data-target="50" data-suffix="+">0</p>
-      <p class="text-xs text-slate-400 mt-0.5">Projects Delivered</p>
-    </div>
-    <div class="p-3.5 rounded-xl glass-card">
-      <p class="font-heading text-2xl font-bold text-purple-400 stat-counter" data-target="3" data-suffix="x">0</p>
-      <p class="text-xs text-slate-400 mt-0.5">Avg Organic Traffic Growth</p>
-    </div>
-    <div class="p-3.5 rounded-xl glass-card">
-      <p class="font-heading text-2xl font-bold text-emerald-400 stat-counter" data-target="24" data-suffix="/7">0</p>
-      <p class="text-xs text-slate-400 mt-0.5">Async Delivery Support</p>
-    </div>
-  </div>
-</section>
 
-<!-- Hero Dashboard Preview -->
-<section class="px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto relative z-10 -mt-4 pb-4">
-  <div id="hero-3d-card" class="rounded-2xl overflow-hidden border border-slate-700/60 shadow-2xl shadow-sky-500/10 relative group aspect-[16/10] max-h-[300px] sm:max-h-[400px] md:max-h-[480px] w-full bg-slate-950 cursor-pointer" style="perspective: 1000px; transform-style: preserve-3d; will-change: transform;">
-    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent z-20 pointer-events-none"></div>
-    <img
-      src="{{ asset('images/hero/home-hero.png') }}"
-      alt="Tech Solution engineering — Laravel web development, mobile apps, and SEO optimization platforms built for growing businesses"
-      class="w-full h-full object-cover object-center scale-[1.05] relative z-10"
-      width="1200"
-      height="750"
-      loading="eager"
-      decoding="async"
-    />
-    <div class="absolute bottom-4 left-4 right-4 z-30 flex items-center justify-between">
-      <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-900/90 backdrop-blur-sm border border-slate-700/60 text-xs text-slate-300">
-        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-        Core Capabilities Overview
-      </span>
-      <a href="#services" class="px-3 py-1.5 rounded-full bg-sky-500/20 backdrop-blur-sm border border-sky-500/30 text-xs text-sky-400 font-semibold hover:bg-sky-500/30 transition-all">
-        Explore Services →
-      </a>
+    <!-- Right Side: Interactive Holographic Globe & Orbit Rings & Floating Panels -->
+    <div class="globe-wrapper">
+      <!-- Neon Orbit Rings -->
+      <div class="orbit-ring orbit-ring-1 js-parallax-ring" data-speed="1.4"></div>
+      <div class="orbit-ring orbit-ring-2 js-parallax-ring" data-speed="-1.0"></div>
+      <div class="orbit-ring orbit-ring-3 js-parallax-ring" data-speed="0.8"></div>
+      <div class="orbit-ring orbit-ring-4 js-parallax-ring" data-speed="-1.6"></div>
+
+      <!-- Holographic Globe Canvas -->
+      <div class="globe-canvas-container js-parallax-globe" data-speed="2.0">
+        <canvas id="holographic-globe-canvas"></canvas>
+      </div>
+
+      <!-- Floating Glassmorphism Panels -->
+      <!-- 1. Support ticket dashboard -->
+      <div id="panel-ticket" class="floating-glass-card-outer float-anim-1">
+        <div class="floating-glass-card-inner glow-border-cyan js-parallax-card" data-speed="2.5">
+          <div class="flex items-center gap-2 mb-1.5">
+            <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+            <span class="font-semibold text-[10px] text-cyan-400">TICKET #2049</span>
+          </div>
+          <div class="glass-ui-line long accent-cyan"></div>
+          <div class="glass-ui-line medium"></div>
+          <span class="text-[9px] text-slate-400">Remote Session Active</span>
+        </div>
+      </div>
+
+      <!-- 2. Live chat window -->
+      <div id="panel-chat" class="floating-glass-card-outer float-anim-2">
+        <div class="floating-glass-card-inner glow-border-blue js-parallax-card" data-speed="1.2">
+          <div class="flex items-center gap-1.5 mb-1">
+            <svg class="w-3.5 h-3.5 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" /></svg>
+            <span class="font-bold text-[9px] text-sky-400">Live Support Chat</span>
+          </div>
+          <div class="glass-ui-line short accent-blue"></div>
+          <div class="glass-ui-line medium"></div>
+          <div class="glass-ui-line short"></div>
+        </div>
+      </div>
+
+      <!-- 3. Remote desktop support panel -->
+      <div id="panel-remote" class="floating-glass-card-outer float-anim-3">
+        <div class="floating-glass-card-inner glow-border-magenta js-parallax-card" data-speed="3.0">
+          <div class="flex items-center gap-2 mb-1.5">
+            <svg class="w-3.5 h-3.5 text-magenta-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+            <span class="font-bold text-[9px] text-magenta-400">Remote Control</span>
+          </div>
+          <div class="glass-ui-line medium accent-magenta"></div>
+          <div class="flex gap-1">
+            <span class="w-1.5 h-1.5 rounded-full bg-magenta-500 animate-pulse"></span>
+            <span class="w-1.5 h-1.5 rounded-full bg-slate-600"></span>
+            <span class="w-1.5 h-1.5 rounded-full bg-slate-600"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Cybersecurity shield icon -->
+      <div id="panel-shield" class="floating-glass-card-outer float-anim-4">
+        <div class="floating-glass-card-inner glow-border-magenta js-parallax-card" data-speed="1.8">
+          <div class="flex items-center gap-1.5">
+            <div class="p-1 rounded bg-magenta-500/10 border border-magenta-500/30">
+              <svg class="w-4 h-4 text-magenta-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+            </div>
+            <div>
+              <p class="font-bold text-[9px] text-white">SHIELD ACTIVE</p>
+              <p class="text-[7px] text-emerald-400">Threats Blocked</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. Cloud/server status panel -->
+      <div id="panel-cloud" class="floating-glass-card-outer float-anim-5">
+        <div class="floating-glass-card-inner glow-border-purple js-parallax-card" data-speed="2.2">
+          <div class="flex items-center gap-1.5 justify-between">
+            <span class="font-bold text-[9px] text-purple-400">NODE STATUS</span>
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          </div>
+          <div class="glass-ui-line long"></div>
+          <div class="glass-ui-line short accent-purple"></div>
+        </div>
+      </div>
+
+      <!-- 6. Analytics graph -->
+      <div id="panel-graph" class="floating-glass-card-outer float-anim-6">
+        <div class="floating-glass-card-inner glow-border-cyan js-parallax-card" data-speed="3.5">
+          <div class="flex items-center justify-between gap-4 mb-1">
+            <span class="font-bold text-[9px] text-cyan-400">CPU LOAD</span>
+            <span class="text-[8px] text-cyan-300">42%</span>
+          </div>
+          <svg class="w-20 h-6 overflow-visible" viewBox="0 0 100 30">
+            <path d="M 0,25 Q 15,10 30,22 T 60,8 T 90,15 L 100,5" fill="none" stroke="#22d3ee" stroke-width="1.5" />
+            <path d="M 0,25 Q 15,10 30,22 T 60,8 T 90,15 L 100,5 L 100,30 L 0,30 Z" fill="url(#cyan-grad)" opacity="0.1" />
+            <defs>
+              <linearGradient id="cyan-grad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#22d3ee" />
+                <stop offset="100%" stop-color="#22d3ee" stop-opacity="0" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+      </div>
+
+      <!-- 7. Help/search icon -->
+      <div id="panel-search" class="floating-glass-card-outer float-anim-7">
+        <div class="floating-glass-card-inner glow-border-blue js-parallax-card" data-speed="1.4">
+          <div class="flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+            <div class="glass-ui-line short"></div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>

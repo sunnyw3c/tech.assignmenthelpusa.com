@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileMenu();
   initContactModal();
   initHero3DTilt();
+  initFuturisticHero();
 });
 
 /* ============================================================
@@ -997,4 +998,391 @@ function initHero3DTilt() {
     shine.style.transition = 'opacity 0.5s ease-out';
     shine.style.opacity = '0';
   });
+}
+
+/* ============================================================
+   FUTURISTIC HOLOGRAPHIC HERO INITIALIZATION
+   ============================================================ */
+function initFuturisticHero() {
+  const container = document.querySelector('.hero-futuristic-container');
+  const canvas = document.getElementById('holographic-globe-canvas');
+  if (!canvas) return;
+
+  const ctx = canvas.getContext('2d');
+
+  // Normalized mouse coordinates
+  let mouseX = 0;
+  let mouseY = 0;
+  let targetMouseX = 0;
+  let targetMouseY = 0;
+
+  // Track if mouse is over container
+  let isHovered = false;
+
+  // Globe dimensions & rotation settings
+  let radius = 120;
+  let centerX = 160;
+  let centerY = 160;
+  let angleY = 0; // Continuous Y rotation
+  let angleX = 0.2; // Base tilt
+
+  // Set up resize handler for responsive sizing
+  function resizeCanvas() {
+    const rect = canvas.getBoundingClientRect();
+    canvas.width = rect.width * window.devicePixelRatio;
+    canvas.height = rect.height * window.devicePixelRatio;
+    ctx.resetTransform();
+    ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+    centerX = rect.width / 2;
+    centerY = rect.height / 2;
+    radius = Math.min(rect.width, rect.height) * 0.38;
+  }
+  
+  resizeCanvas();
+  window.addEventListener('resize', resizeCanvas);
+
+  // Generate 25 Network Nodes on the sphere surface
+  const networkNodes = [];
+  const colorPalette = ['#22d3ee', '#38bdf8', '#8b5cf6', '#d946ef']; // cyan, blue, purple, magenta
+  
+  for (let i = 0; i < 26; i++) {
+    const u = Math.random();
+    const v = Math.random();
+    const theta = u * 2 * Math.PI;
+    const phi = Math.acos(2 * v - 1);
+    
+    networkNodes.push({
+      x: Math.sin(phi) * Math.cos(theta),
+      y: Math.sin(phi) * Math.sin(theta),
+      z: Math.cos(phi),
+      color: colorPalette[Math.floor(Math.random() * colorPalette.length)],
+      pulseOffset: Math.random() * Math.PI * 2
+    });
+  }
+
+  // Generate 6 code snippet tags floating on the sphere
+  const codeLabels = [
+    { text: 'SYS_OK', lat: 0.3, lon: 0.8 },
+    { text: 'PING_18MS', lat: -0.4, lon: 2.1 },
+    { text: 'SSL_SECURE', lat: 0.7, lon: -1.2 },
+    { text: 'CLOUD_CONN', lat: -0.1, lon: 3.5 },
+    { text: 'SEC_SHIELD', lat: 0.5, lon: -2.8 },
+    { text: 'IP_VERIFIED', lat: -0.6, lon: 0.2 }
+  ];
+
+  // Convert lat/lon to 3D sphere coordinates
+  const codeNodes = codeLabels.map(label => {
+    // lat from -PI/2 to PI/2, lon from 0 to 2*PI
+    const phi = Math.PI / 2 - label.lat;
+    const theta = label.lon;
+    return {
+      x: Math.sin(phi) * Math.cos(theta),
+      y: Math.cos(phi),
+      z: Math.sin(phi) * Math.sin(theta),
+      text: label.text
+    };
+  });
+
+  // Generate 35 background particles drifting slowly in 3D-ish space
+  const bgParticles = [];
+  for (let i = 0; i < 35; i++) {
+    bgParticles.push({
+      x: Math.random() * 320,
+      y: Math.random() * 320,
+      z: Math.random() * 200 - 100, // Depth
+      size: Math.random() * 1.5 + 0.5,
+      speedX: (Math.random() - 0.5) * 0.15,
+      speedY: (Math.random() - 0.5) * 0.15,
+      opacity: Math.random() * 0.4 + 0.1
+    });
+  }
+
+  // Mouse Listeners
+  if (container) {
+    container.addEventListener('mousemove', (e) => {
+      const rect = container.getBoundingClientRect();
+      // Normalized coordinates: -1 to 1
+      targetMouseX = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+      targetMouseY = ((e.clientY - rect.top) / rect.height) * 2 - 1;
+      isHovered = true;
+    });
+
+    container.addEventListener('mouseleave', () => {
+      targetMouseX = 0;
+      targetMouseY = 0;
+      isHovered = false;
+    });
+  }
+
+  // 3D Projection Math
+  function project(px, py, pz, finalAngleX, finalAngleY) {
+    // Rotate Y (Longitude rotation)
+    const cosY = Math.cos(finalAngleY);
+    const sinY = Math.sin(finalAngleY);
+    const x1 = px * cosY - pz * sinY;
+    const z1 = px * sinY + pz * cosY;
+
+    // Rotate X (Latitude tilt)
+    const cosX = Math.cos(finalAngleX);
+    const sinX = Math.sin(finalAngleX);
+    const y2 = py * cosX - z1 * sinX;
+    const z2 = py * sinX + z1 * cosX;
+
+    // Perspective Projection
+    const depth = 350;
+    const scale = depth / (depth + z2 * radius);
+    const screenX = centerX + x1 * radius * scale;
+    const screenY = centerY + y2 * radius * scale;
+
+    return {
+      x: screenX,
+      y: screenY,
+      z: z2, // z value: negative is closer to camera, positive is further
+      scale: scale
+    };
+  }
+
+  // Render Loop
+  function render() {
+    // 1. Interpolation (Lerping) for mouse offsets
+    mouseX += (targetMouseX - mouseX) * 0.06;
+    mouseY += (targetMouseY - mouseY) * 0.06;
+
+    // Increment continuous rotation
+    angleY += 0.0028;
+
+    // Combine continuous Y rotation with Y mouse tilt, and base X tilt with X mouse tilt
+    const finalAngleX = angleX + mouseY * 0.28;
+    const finalAngleY = angleY + mouseX * 0.28;
+
+    // Clear Canvas
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // 2. Render background drifting particles
+    bgParticles.forEach(p => {
+      p.x += p.speedX;
+      p.y += p.speedY;
+
+      // Wrap-around boundary conditions
+      if (p.x < 0) p.x = 320;
+      if (p.x > 320) p.x = 0;
+      if (p.y < 0) p.y = 320;
+      if (p.y > 320) p.y = 0;
+
+      // Mouse parallax shift
+      const px = p.x + mouseX * 15;
+      const py = p.y + mouseY * 15;
+
+      ctx.fillStyle = `rgba(34, 211, 238, ${p.opacity})`;
+      ctx.beginPath();
+      ctx.arc(px, py, p.size, 0, Math.PI * 2);
+      ctx.fill();
+    });
+
+    // 3. Grid Lines Projection lists
+    const latRings = 7;
+    const lonRings = 7;
+    const ringSteps = 36;
+
+    const projectedGrid = []; // Store coordinates to sort by depth or render selectively
+
+    // Precalculate latitude lines
+    for (let r = 1; r < latRings; r++) {
+      const latAngle = (r / latRings) * Math.PI - Math.PI / 2;
+      const ringRadiusRatio = Math.cos(latAngle);
+      const ringY = Math.sin(latAngle);
+
+      const latSegments = [];
+      for (let s = 0; s <= ringSteps; s++) {
+        const stepAngle = (s / ringSteps) * 2 * Math.PI;
+        const rx = ringRadiusRatio * Math.cos(stepAngle);
+        const rz = ringRadiusRatio * Math.sin(stepAngle);
+
+        const pt = project(rx, ringY, rz, finalAngleX, finalAngleY);
+        latSegments.push(pt);
+      }
+      projectedGrid.push({ type: 'lat', points: latSegments });
+    }
+
+    // Precalculate longitude lines
+    for (let r = 0; r < lonRings; r++) {
+      const lonAngle = (r / lonRings) * Math.PI;
+
+      const lonSegments = [];
+      for (let s = 0; s <= ringSteps; s++) {
+        const stepAngle = (s / ringSteps) * 2 * Math.PI;
+        // Point revolving around Y-axis rotated by lonAngle
+        const rx = Math.cos(stepAngle) * Math.cos(lonAngle);
+        const ry = Math.sin(stepAngle);
+        const rz = Math.cos(stepAngle) * Math.sin(lonAngle);
+
+        const pt = project(rx, ry, rz, finalAngleX, finalAngleY);
+        lonSegments.push(pt);
+      }
+      projectedGrid.push({ type: 'lon', points: lonSegments });
+    }
+
+    // --- DRAW BACK GRID ---
+    ctx.lineWidth = 0.55;
+    projectedGrid.forEach(gridLine => {
+      for (let i = 0; i < gridLine.points.length - 1; i++) {
+        const pt1 = gridLine.points[i];
+        const pt2 = gridLine.points[i+1];
+        
+        // If segments are in the back (z > 0)
+        if (pt1.z > 0 && pt2.z > 0) {
+          ctx.strokeStyle = `rgba(34, 211, 238, 0.045)`;
+          ctx.beginPath();
+          ctx.moveTo(pt1.x, pt1.y);
+          ctx.lineTo(pt2.x, pt2.y);
+          ctx.stroke();
+        }
+      }
+    });
+
+    // --- DRAW TRANSPARENT GLOBE BODY ---
+    // A subtle gradient fills the sphere volume, helping with occlusion
+    ctx.beginPath();
+    ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
+    const bodyGrad = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, radius);
+    bodyGrad.addColorStop(0, 'rgba(8, 12, 30, 0.52)');
+    bodyGrad.addColorStop(0.85, 'rgba(5, 8, 22, 0.38)');
+    bodyGrad.addColorStop(1, 'rgba(34, 211, 238, 0.06)');
+    ctx.fillStyle = bodyGrad;
+    ctx.fill();
+
+    // Subtle edge rim glow line
+    ctx.strokeStyle = 'rgba(34, 211, 238, 0.35)';
+    ctx.lineWidth = 1.0;
+    ctx.stroke();
+
+    // --- DRAW FRONT GRID ---
+    ctx.lineWidth = 0.65;
+    projectedGrid.forEach(gridLine => {
+      for (let i = 0; i < gridLine.points.length - 1; i++) {
+        const pt1 = gridLine.points[i];
+        const pt2 = gridLine.points[i+1];
+        
+        // If segments are in the front (z <= 0)
+        if (pt1.z <= 0 || pt2.z <= 0) {
+          // Fade alpha slightly if near edge z ~ 0
+          const avgZ = (pt1.z + pt2.z) / 2;
+          const alpha = 0.18 + (1.0 - (avgZ + 1) / 2) * 0.18;
+          ctx.strokeStyle = `rgba(34, 211, 238, ${alpha})`;
+          ctx.beginPath();
+          ctx.moveTo(pt1.x, pt1.y);
+          ctx.lineTo(pt2.x, pt2.y);
+          ctx.stroke();
+        }
+      }
+    });
+
+    // --- DRAW NETWORK CONNECTIONS (DOTS & LINES) ---
+    // Project all nodes first
+    const projectedNodes = networkNodes.map(node => {
+      const pt = project(node.x, node.y, node.z, finalAngleX, finalAngleY);
+      return { ...node, screenX: pt.x, screenY: pt.y, zValue: pt.z, scale: pt.scale };
+    });
+
+    // Draw connection lines
+    ctx.lineWidth = 0.45;
+    for (let i = 0; i < projectedNodes.length; i++) {
+      const n1 = projectedNodes[i];
+      for (let j = i + 1; j < projectedNodes.length; j++) {
+        const n2 = projectedNodes[j];
+        
+        // Connect if close in 3D space
+        const dx = n1.x - n2.x;
+        const dy = n1.y - n2.y;
+        const dz = n1.z - n2.z;
+        const dist = Math.sqrt(dx*dx + dy*dy + dz*dz);
+        
+        if (dist < 0.58) {
+          // Alpha depends on depth
+          const avgZ = (n1.zValue + n2.zValue) / 2;
+          const isFront = avgZ <= 0;
+          const alpha = isFront ? 0.22 : 0.055;
+          ctx.strokeStyle = `rgba(56, 189, 248, ${alpha})`;
+          ctx.beginPath();
+          ctx.moveTo(n1.screenX, n1.screenY);
+          ctx.lineTo(n2.screenX, n2.screenY);
+          ctx.stroke();
+        }
+      }
+    }
+
+    // Draw nodes
+    projectedNodes.forEach(node => {
+      const isFront = node.zValue <= 0;
+      const alpha = isFront ? 0.75 : 0.18;
+      const pulse = Math.sin(Date.now() * 0.003 + node.pulseOffset) * 0.5 + 0.5;
+      const size = (isFront ? 2.5 : 1.25) + pulse * 1.0;
+
+      ctx.fillStyle = node.color;
+      ctx.globalAlpha = alpha;
+      ctx.beginPath();
+      ctx.arc(node.screenX, node.screenY, size, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.globalAlpha = 1.0;
+    });
+
+    // --- DRAW CODE-LIKE LABELS INSIDE ---
+    ctx.font = '7px monospace';
+    ctx.fillStyle = 'rgba(56, 189, 248, 0.48)';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+
+    codeNodes.forEach(node => {
+      const pt = project(node.x, node.y, node.z, finalAngleX, finalAngleY);
+      if (pt.z <= 0) { // Only draw front-facing labels
+        ctx.fillStyle = `rgba(34, 211, 238, ${Math.max(0.1, (0.0 - pt.z) * 0.7)})`;
+        ctx.fillText(node.text, pt.x, pt.y);
+      }
+    });
+
+    // 4. PARALLAX EFFECT FOR NEON ORBIT RINGS
+    const ringEls = document.querySelectorAll('.js-parallax-ring');
+    ringEls.forEach(ring => {
+      const speed = parseFloat(ring.dataset.speed || 1.0);
+      const tx = mouseX * speed * 22;
+      const ty = mouseY * speed * 22;
+      // Combine original tilt angle from CSS with translation
+      ring.style.transform = `translate3d(${tx}px, ${ty}px, 0px) ${getOrbitBaseRotation(ring)}`;
+    });
+
+    // 5. PARALLAX EFFECT FOR GLOBE CANVAS CONTAINER
+    const globeContainer = document.querySelector('.js-parallax-globe');
+    if (globeContainer) {
+      const speed = parseFloat(globeContainer.dataset.speed || 2.0);
+      const tx = mouseX * speed * 12;
+      const ty = mouseY * speed * 12;
+      globeContainer.style.transform = `translate3d(${tx}px, ${ty}px, 0px) rotateX(${mouseY * -8}deg) rotateY(${mouseX * 8}deg)`;
+    }
+
+    // 6. PARALLAX EFFECT FOR FLOATING UI PANELS
+    const panelCards = document.querySelectorAll('.js-parallax-card');
+    panelCards.forEach(card => {
+      const speed = parseFloat(card.dataset.speed || 1.0);
+      const tx = mouseX * speed * 18;
+      const ty = mouseY * speed * 18;
+      // Add a slight tilt to the card based on mouse direction to give 3D depth
+      const rX = mouseY * -6;
+      const rY = mouseX * 6;
+      card.style.transform = `translate3d(${tx}px, ${ty}px, 10px) rotateX(${rX}deg) rotateY(${rY}deg)`;
+    });
+
+    requestAnimationFrame(render);
+  }
+
+  // Returns base rotation to preserve styling from orbits
+  function getOrbitBaseRotation(ring) {
+    if (ring.classList.contains('orbit-ring-1')) return 'rotateX(72deg) rotateY(18deg)';
+    if (ring.classList.contains('orbit-ring-2')) return 'rotateX(65deg) rotateY(-25deg)';
+    if (ring.classList.contains('orbit-ring-3')) return 'rotateX(80deg) rotateY(5deg)';
+    if (ring.classList.contains('orbit-ring-4')) return 'rotateX(55deg) rotateY(35deg)';
+    return '';
+  }
+
+  // Start Render Loop
+  requestAnimationFrame(render);
 }
