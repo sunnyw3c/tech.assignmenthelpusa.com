@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCaseStudyTabs();
   initMobileMenu();
   initContactModal();
+  initHero3DTilt();
 });
 
 /* ============================================================
@@ -939,4 +940,61 @@ function initMobileMenu() {
   menuBtn.addEventListener('click', () => menuDrawer.classList.remove('translate-x-full'));
   if (closeBtn) closeBtn.addEventListener('click', () => menuDrawer.classList.add('translate-x-full'));
   navLinks.forEach(link => link.addEventListener('click', () => menuDrawer.classList.add('translate-x-full')));
+}
+/* ============================================================
+   HERO 3D TILT EFFECT
+   ============================================================ */
+function initHero3DTilt() {
+  const card = document.getElementById('hero-3d-card');
+  if (!card) return;
+
+  const img = card.querySelector('img');
+  
+  // Create reflective shine overlay
+  const shine = document.createElement('div');
+  shine.className = 'absolute inset-0 bg-gradient-to-tr from-white/0 via-white/10 to-white/0 opacity-0 pointer-events-none z-30 transition-opacity duration-300';
+  card.appendChild(shine);
+
+  card.addEventListener('mousemove', (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    
+    // Max rotation 12 degrees
+    const rotateX = ((centerY - y) / centerY) * 12;
+    const rotateY = ((x - centerX) / centerX) * 12;
+    
+    card.style.transition = 'transform 0.1s ease-out';
+    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+    
+    if (img) {
+      // Parallax effect: image moves slightly in the opposite direction
+      const translateImgX = ((x - centerX) / centerX) * -6;
+      const translateImgY = ((y - centerY) / centerY) * -6;
+      img.style.transition = 'transform 0.1s ease-out';
+      img.style.transform = `scale(1.05) translate3d(${translateImgX}px, ${translateImgY}px, 0)`;
+    }
+    
+    // Move shine reflection overlay
+    const shineX = (x / rect.width) * 100;
+    const shineY = (y / rect.height) * 100;
+    shine.style.background = `radial-gradient(circle at ${shineX}% ${shineY}%, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%)`;
+    shine.style.opacity = '1';
+  });
+
+  card.addEventListener('mouseleave', () => {
+    card.style.transition = 'transform 0.5s ease-out';
+    card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+    
+    if (img) {
+      img.style.transition = 'transform 0.5s ease-out';
+      img.style.transform = 'scale(1.05) translate3d(0, 0, 0)';
+    }
+    
+    shine.style.transition = 'opacity 0.5s ease-out';
+    shine.style.opacity = '0';
+  });
 }

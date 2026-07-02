@@ -103,21 +103,21 @@
 
 <!-- Hero Dashboard Preview -->
 <section class="px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto relative z-10 -mt-4 pb-4">
-  <div class="rounded-2xl overflow-hidden border border-slate-700/60 shadow-2xl shadow-sky-500/10 relative group">
-    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent z-10 pointer-events-none"></div>
+  <div id="hero-3d-card" class="rounded-2xl overflow-hidden border border-slate-700/60 shadow-2xl shadow-sky-500/10 relative group aspect-[16/10] max-h-[300px] sm:max-h-[400px] md:max-h-[480px] w-full bg-slate-950 cursor-pointer" style="perspective: 1000px; transform-style: preserve-3d; will-change: transform;">
+    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent z-20 pointer-events-none"></div>
     <img
       src="{{ asset('images/hero/home-hero.png') }}"
-      alt="Tech Solution dashboard — Laravel web development, mobile app, and SEO analytics platform built for growing businesses"
-      class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+      alt="Tech Solution engineering — Laravel web development, mobile apps, and SEO optimization platforms built for growing businesses"
+      class="w-full h-full object-cover object-center scale-[1.05] relative z-10"
       width="1200"
-      height="675"
+      height="750"
       loading="eager"
       decoding="async"
     />
-    <div class="absolute bottom-4 left-4 right-4 z-20 flex items-center justify-between">
+    <div class="absolute bottom-4 left-4 right-4 z-30 flex items-center justify-between">
       <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-900/90 backdrop-blur-sm border border-slate-700/60 text-xs text-slate-300">
         <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-        Live Platform Preview
+        Core Capabilities Overview
       </span>
       <a href="#services" class="px-3 py-1.5 rounded-full bg-sky-500/20 backdrop-blur-sm border border-sky-500/30 text-xs text-sky-400 font-semibold hover:bg-sky-500/30 transition-all">
         Explore Services →
