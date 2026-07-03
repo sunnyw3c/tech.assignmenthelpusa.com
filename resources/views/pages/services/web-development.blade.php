@@ -5,36 +5,160 @@
 
 @section('content')
 
-<section class="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto relative z-10">
-  <div class="glass-panel rounded-2xl p-6 sm:p-12 border border-sky-500/30 shadow-xl relative overflow-hidden">
-    <div class="max-w-3xl">
-      <span class="px-3 py-1 rounded-full bg-sky-500/10 text-sky-400 text-xs font-bold uppercase tracking-wider border border-sky-500/20 mb-4 inline-block">
-        Web Development Service Provider
-      </span>
-      <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+<!-- 1. FUTURISTIC HOLOGRAPHIC HERO SECTION -->
+<section class="hero-futuristic-container w-full z-10">
+  <div class="hero-glow-blob-1"></div>
+  <div class="hero-glow-blob-2"></div>
+  <div class="hero-glow-blob-3"></div>
+
+  <div class="hero-futuristic-grid">
+    <!-- Left Side: Marketing Content -->
+    <div class="flex flex-col justify-center text-left max-w-2xl mx-auto lg:mx-0">
+      <nav class="breadcrumb-nav mb-4" aria-label="Breadcrumb">
         <a href="{{ url('/') }}">Home</a>
         <span class="sep">/</span>
         <span class="current">Web Development</span>
       </nav>
-      <h1 class="font-heading text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-4">
-        Web Development Services for <span class="text-gradient">Websites, Stores & Apps</span>
+
+      <div class="flex justify-center lg:justify-start">
+        <span class="trust-pill">
+          <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping"></span>
+          Enterprise-Grade Performance
+        </span>
+      </div>
+
+      <h1 class="font-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight mb-6 text-center lg:text-left">
+        Web Development for <span class="text-gradient">Websites, Stores & Apps</span>
       </h1>
-      <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
-        Businesses can hire freelancers, website builders, ecommerce specialists, or full-service agencies for web development. Tech Solution is the full-service partner for projects that need strategy, UI/UX, Laravel and React engineering, SEO-ready content structure, security, integrations, launch support, and ongoing improvement.
+
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0 text-center lg:text-left">
+        Businesses can hire freelancers, website builders, or ecommerce specialists. Tech Solution is the full-service partner for projects needing strategy, custom Laravel & React engineering, Core Web Vitals optimization, and ongoing improvements.
       </p>
-      <a href="#calculator" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-sky-400 to-indigo-500 text-slate-950 font-bold text-xs uppercase tracking-wider shadow-lg hover:scale-105 transition-all">
-        Plan My Web Project
-      </a>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+        <a href="#calculator" class="w-full sm:w-auto btn-futuristic-primary text-center justify-center">
+          <span>Plan My Web Project</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7-7 7M3 12h18" /></svg>
+        </a>
+        <a href="#buyer-guide" class="w-full sm:w-auto btn-futuristic-secondary text-center justify-center">
+          <span>Compare Options</span>
+        </a>
+      </div>
     </div>
-    <!-- Service Hero Image -->
-    <div class="mt-8 rounded-xl overflow-hidden border border-sky-500/20 shadow-xl shadow-sky-500/10">
-      <img
-        src="{{ asset('images/services/web-development.png') }}"
-        alt="Custom Laravel web development — code editor and website dashboard built by Tech Solution"
-        class="w-full h-auto object-cover"
-        width="1200" height="600"
-        loading="eager" decoding="async"
-      />
+
+    <!-- Right Side: Interactive Holographic Globe & Orbit Rings & Floating Panels -->
+    <!-- Right Side: 3D Isometric Web Application Stack -->
+    <div class="isometric-stack-container">
+      <!-- Floating Technology Chips -->
+      <span class="tech-chip" id="chip-laravel">Laravel</span>
+      <span class="tech-chip" id="chip-react">React</span>
+      <span class="tech-chip" id="chip-vite">Vite</span>
+      <span class="tech-chip" id="chip-tailwind">Tailwind</span>
+
+      <!-- 3D Perspective Viewport -->
+      <div class="isometric-stack-viewport">
+        <!-- Connecting Vertical Lasers (Standing perpendicular in 3D) -->
+        <div class="connector-line connector-line-1"></div>
+        <div class="connector-line connector-line-2"></div>
+        <div class="connector-line connector-line-3"></div>
+        <div class="connector-line connector-line-4"></div>
+
+        <!-- 1. Frontend Layer (Top) -->
+        <div class="stack-layer layer-frontend flex flex-col justify-between">
+          <!-- Glassmorphism Mock Browser Header -->
+          <div class="flex items-center justify-between border-b border-cyan-400/20 pb-1.5 mb-2">
+            <div class="flex gap-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-rose-500"></span>
+              <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+            </div>
+            <div class="bg-slate-950/50 text-[7px] text-slate-400 px-3 py-0.5 rounded border border-slate-800/80 tracking-wide font-mono">
+              techsolution.com/app
+            </div>
+            <div class="w-4"></div>
+          </div>
+          <!-- Mock Page Content -->
+          <div class="flex-1 flex gap-2">
+            <div class="w-1/3 bg-slate-950/40 rounded p-1 flex flex-col justify-between border border-slate-800/50">
+              <div class="h-2 w-full bg-cyan-400/20 rounded"></div>
+              <div class="h-1.5 w-2/3 bg-slate-700/40 rounded mt-1"></div>
+              <div class="h-1.5 w-1/2 bg-slate-700/40 rounded mt-1"></div>
+              <div class="h-4 w-full bg-cyan-400/10 rounded mt-2 flex items-center justify-center">
+                <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+              </div>
+            </div>
+            <div class="flex-1 bg-slate-950/30 rounded p-1.5 border border-slate-800/50 flex flex-col justify-between">
+              <div class="flex justify-between items-center mb-1">
+                <span class="text-[7px] text-cyan-400 font-bold uppercase tracking-wider">Metrics</span>
+                <span class="text-[6px] text-emerald-400">Live</span>
+              </div>
+              <div class="flex-1 flex items-end gap-1 pb-1">
+                <div class="w-3 bg-cyan-400/40 h-8 rounded-sm"></div>
+                <div class="w-3 bg-cyan-400 h-10 rounded-sm"></div>
+                <div class="w-3 bg-cyan-400/60 h-6 rounded-sm"></div>
+                <div class="w-3 bg-cyan-400/20 h-4 rounded-sm"></div>
+              </div>
+            </div>
+          </div>
+          <!-- Footer Status -->
+          <div class="flex items-center justify-between text-[7px] text-cyan-400/80 font-bold pt-1.5 border-t border-cyan-400/10">
+            <span>FRONTEND LAYER</span>
+            <span>99 PERFORMANCE</span>
+          </div>
+        </div>
+
+        <!-- 2. Backend Layer (Middle) -->
+        <div class="stack-layer layer-backend flex flex-col justify-between">
+          <!-- Glassmorphism Mock Code Editor Header -->
+          <div class="flex items-center justify-between border-b border-sky-400/20 pb-1.5 mb-2">
+            <span class="text-[7px] text-sky-400 font-mono">UserController.php</span>
+            <span class="text-[7px] text-slate-500 font-mono">UTF-8</span>
+          </div>
+          <!-- Code Block Mock -->
+          <div class="flex-1 font-mono text-[7px] text-slate-300 leading-normal flex flex-col justify-center">
+            <div><span class="text-sky-400">Route::</span><span class="text-sky-300">get</span>(<span class="text-amber-300">'/api/v1/users'</span>, function() {</div>
+            <div class="pl-3"><span class="text-purple-400">return</span> <span class="text-sky-400">User::</span><span class="text-sky-300">with</span>(<span class="text-amber-300">'profile'</span>)-><span class="text-sky-300">paginate</span>(15);</div>
+            <div>});</div>
+            <div class="mt-2 text-slate-500">// Cached index for 3600 seconds</div>
+          </div>
+          <!-- Footer Status -->
+          <div class="flex items-center justify-between text-[7px] text-sky-400/80 font-bold pt-1.5 border-t border-sky-400/10">
+            <span>BACKEND API (LARAVEL)</span>
+            <span class="text-emerald-400">BUILD OK</span>
+          </div>
+        </div>
+
+        <!-- 3. Database Layer (Bottom) -->
+        <div class="stack-layer layer-database flex flex-col justify-between">
+          <!-- Glassmorphism Schema Header -->
+          <div class="flex items-center justify-between border-b border-purple-400/20 pb-1.5 mb-2">
+            <span class="text-[7px] text-purple-400 font-mono">sqlite://database.sqlite</span>
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          </div>
+          <!-- DB Schema Visual -->
+          <div class="flex-1 flex items-center justify-between gap-4">
+            <!-- Schema Card -->
+            <div class="w-1/2 bg-slate-950/50 rounded border border-purple-500/20 p-1.5 font-mono text-[6px] text-slate-400">
+              <div class="text-[7px] text-purple-400 font-bold border-b border-purple-500/10 pb-0.5 mb-1 uppercase">users table</div>
+              <div>id : INTEGER [PK]</div>
+              <div>name : VARCHAR</div>
+              <div>email : VARCHAR [UNIQUE]</div>
+              <div>created_at : TIMESTAMP</div>
+            </div>
+            <!-- Disk Cylinders -->
+            <div class="flex-1 flex flex-col gap-1 items-center justify-center">
+              <div class="w-12 h-4 rounded-full bg-purple-500/20 border border-purple-400/30 flex items-center justify-center text-[7px] text-purple-300 font-bold">SQLITE_1</div>
+              <div class="w-12 h-4 rounded-full bg-purple-500/20 border border-purple-400/30 flex items-center justify-center text-[7px] text-purple-300 font-bold">SQLITE_2</div>
+              <div class="w-12 h-4 rounded-full bg-purple-500/20 border border-purple-400/30 flex items-center justify-center text-[7px] text-purple-300 font-bold">REPLICAS</div>
+            </div>
+          </div>
+          <!-- Footer Status -->
+          <div class="flex items-center justify-between text-[7px] text-purple-400/80 font-bold pt-1.5 border-t border-purple-400/10">
+            <span>PERSISTENT STORAGE</span>
+            <span>2ms RESP TIME</span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>

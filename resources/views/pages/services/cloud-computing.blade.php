@@ -35,37 +35,156 @@
 @section('content')
 
 {{-- 1. HERO SECTION --}}
-<section class="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto relative z-10">
-  <div class="glass-panel rounded-2xl p-6 sm:p-12 border border-amber-500/30 shadow-xl relative overflow-hidden">
-    <div class="max-w-3xl">
-      <span class="px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 text-xs font-bold uppercase tracking-wider border border-amber-500/20 mb-4 inline-block">
-        Cloud Computing & DevOps Service Provider
-      </span>
-      <nav class="breadcrumb-nav mb-4 text-xs text-slate-400" aria-label="Breadcrumb">
-        <a href="{{ url('/') }}" class="hover:text-amber-400 transition-colors">Home</a>
-        <span class="px-2 opacity-50">/</span>
-        <span class="text-amber-400">Cloud & DevOps</span>
+<!-- 1. FUTURISTIC HOLOGRAPHIC HERO SECTION -->
+<section class="hero-futuristic-container w-full z-10 theme-amber">
+  <div class="hero-glow-blob-1"></div>
+  <div class="hero-glow-blob-2"></div>
+  <div class="hero-glow-blob-3"></div>
+
+  <div class="hero-futuristic-grid">
+    <!-- Left Side: Marketing Content -->
+    <div class="flex flex-col justify-center text-left max-w-2xl mx-auto lg:mx-0">
+      <nav class="breadcrumb-nav mb-4" aria-label="Breadcrumb">
+        <a href="{{ url('/') }}">Home</a>
+        <span class="sep">/</span>
+        <span class="current text-amber-400">Cloud & DevOps</span>
       </nav>
-      <h1 class="font-heading text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-4">
-        Cloud Computing Services on <span class="text-gradient">AWS, GCP & Azure</span> with Full DevOps Delivery
+
+      <div class="flex justify-center lg:justify-start">
+        <span class="trust-pill">
+          <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping"></span>
+          Auto-Scaling & 99.99% SLA Uptime
+        </span>
+      </div>
+
+      <h1 class="font-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight mb-6 text-center lg:text-left">
+        Cloud Services & DevOps on <span class="text-gradient">AWS, GCP & Azure</span>
       </h1>
-      <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
-        Businesses can manage cloud infrastructure through their own IT teams, managed service providers, platform-specific partners, or a full-service cloud engineering agency. Tech Solution is the technical partner for companies that need reliable cloud architecture, automated deployment pipelines, containerized workloads, cost-optimized infrastructure, and a team that owns delivery from design through production monitoring.
+
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0 text-center lg:text-left">
+        Businesses can build servers through basic hostings or internal staff. Tech Solution is the DevOps partner for cloud systems requiring Kubernetes clusters, automated CI/CD code releases, and auto-scaling clusters.
       </p>
-      <a href="#contact" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-amber-400 to-orange-500 text-slate-950 font-bold text-xs uppercase tracking-wider shadow-lg hover:scale-105 transition-all">
-        Discuss My Cloud Project
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7-7 7M3 12h18" /></svg>
-      </a>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+        <a href="#contact" class="w-full sm:w-auto btn-futuristic-primary text-center justify-center">
+          <span>Discuss My Cloud Project</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7-7 7M3 12h18" /></svg>
+        </a>
+        <a href="#buyer-guide" class="w-full sm:w-auto btn-futuristic-secondary text-center justify-center">
+          <span>Compare Options</span>
+        </a>
+      </div>
     </div>
-    <!-- Service Hero Image -->
-    <div class="mt-8 rounded-xl overflow-hidden border border-amber-500/20 shadow-xl shadow-amber-500/10">
-      <img
-        src="{{ asset('images/services/cloud-computing.png') }}"
-        alt="Cloud computing infrastructure — AWS, GCP and CI/CD DevOps pipeline architecture by Tech Solution"
-        class="w-full h-auto object-cover"
-        width="1200" height="600"
-        loading="eager" decoding="async"
-      />
+
+    <!-- Right Side: 3D Isometric Cloud Stack -->
+    <div class="isometric-stack-container">
+      <!-- Floating Technology Chips -->
+      <span class="tech-chip" id="chip-laravel">AWS</span>
+      <span class="tech-chip" id="chip-react">Docker</span>
+      <span class="tech-chip" id="chip-vite">K8s</span>
+      <span class="tech-chip" id="chip-tailwind">Actions</span>
+
+      <!-- 3D Perspective Viewport -->
+      <div class="isometric-stack-viewport">
+        <!-- Connecting Vertical Lasers (Standing perpendicular in 3D) -->
+        <div class="connector-line connector-line-1"></div>
+        <div class="connector-line connector-line-2"></div>
+        <div class="connector-line connector-line-3"></div>
+        <div class="connector-line connector-line-4"></div>
+
+        <!-- 1. Frontend Layer (Top) - Traffic Controller / LB -->
+        <div class="stack-layer layer-frontend flex flex-col justify-between">
+          <!-- Glassmorphism LB Header -->
+          <div class="flex items-center justify-between border-b border-cyan-400/20 pb-1.5 mb-2">
+            <span class="text-[8px] font-bold text-white tracking-wider font-sans">Nginx Load Balancer</span>
+            <div class="bg-slate-950/50 text-[6px] text-cyan-400 px-2 py-0.5 rounded border border-cyan-500/20 font-mono">
+              HTTPS: Active
+            </div>
+          </div>
+          <!-- Traffic grid -->
+          <div class="flex-1 flex gap-2">
+            <div class="w-1/3 bg-slate-950/40 rounded p-1 flex flex-col justify-between border border-slate-800/50">
+              <span class="text-[6px] text-cyan-400 font-bold uppercase">Requests</span>
+              <div class="h-2 w-full bg-cyan-400/25 rounded"></div>
+              <span class="text-[6px] text-slate-400">4,200 req/sec</span>
+              <span class="text-[5px] text-emerald-400 font-mono">0.0% loss</span>
+            </div>
+            <div class="flex-1 bg-slate-950/30 rounded p-1.5 border border-slate-800/50 flex flex-col justify-between font-mono text-[6px] text-slate-300">
+              <div class="flex justify-between items-center mb-0.5 pb-0.5 border-b border-slate-800/80">
+                <span class="text-cyan-400">Traffic Distribution</span>
+                <span class="text-emerald-400">Node</span>
+              </div>
+              <div class="flex justify-between"><span>Node_US_East_1</span><span class="text-emerald-400">40% load</span></div>
+              <div class="flex justify-between"><span>Node_EU_West_1</span><span class="text-emerald-400">35% load</span></div>
+              <div class="flex justify-between"><span>Node_AP_South_1</span><span class="text-emerald-400">25% load</span></div>
+            </div>
+          </div>
+          <!-- Footer Status -->
+          <div class="flex items-center justify-between text-[7px] text-cyan-400/80 font-bold pt-1.5 border-t border-cyan-400/10">
+            <span>TRAFFIC ROUTING NODE</span>
+            <span>SSL TERMINATION PASSED</span>
+          </div>
+        </div>
+
+        <!-- 2. Backend Layer (Middle) - Clusters & VMs -->
+        <div class="stack-layer layer-backend flex flex-col justify-between">
+          <!-- Glassmorphism Kubernetes Header -->
+          <div class="flex items-center justify-between border-b border-sky-400/20 pb-1.5 mb-2">
+            <span class="text-[7px] text-sky-400 font-mono">Kubernetes Cluster (k8s)</span>
+            <span class="text-[7px] text-emerald-400 font-mono">ReplicaSet: 5</span>
+          </div>
+          <!-- Cluster Nodes Visuals -->
+          <div class="flex-1 flex gap-2 items-center justify-center">
+            <div class="bg-slate-950/40 p-1.5 rounded border border-slate-800/40 text-[6px] flex flex-col items-center">
+              <span class="text-slate-300 font-mono">pod-app-1</span>
+              <span class="text-emerald-400 font-bold font-mono">HEALTHY</span>
+            </div>
+            <div class="bg-slate-950/40 p-1.5 rounded border border-slate-800/40 text-[6px] flex flex-col items-center">
+              <span class="text-slate-300 font-mono">pod-app-2</span>
+              <span class="text-emerald-400 font-bold font-mono">HEALTHY</span>
+            </div>
+            <div class="bg-slate-950/40 p-1.5 rounded border border-slate-800/40 text-[6px] flex flex-col items-center">
+              <span class="text-slate-300 font-mono">pod-app-3</span>
+              <span class="text-emerald-400 font-bold font-mono">HEALTHY</span>
+            </div>
+          </div>
+          <!-- Footer Status -->
+          <div class="flex items-center justify-between text-[7px] text-sky-400/80 font-bold pt-1.5 border-t border-sky-400/10">
+            <span>CONTAINER ORCHESTRATION</span>
+            <span>AUTO-SCALE THRESHOLD: 80%</span>
+          </div>
+        </div>
+
+        <!-- 3. Database Layer (Bottom) - VPC Network / AWS -->
+        <div class="stack-layer layer-database flex flex-col justify-between">
+          <!-- Glassmorphism VPC Network Header -->
+          <div class="flex items-center justify-between border-b border-purple-400/20 pb-1.5 mb-2">
+            <span class="text-[7px] text-purple-400 font-mono">Multi-Region Cloud Infrastructure</span>
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          </div>
+          <!-- Cloud Details -->
+          <div class="flex-1 flex items-center justify-between gap-4">
+            <!-- Region Latency Card -->
+            <div class="w-1/2 bg-slate-950/50 rounded border border-purple-500/20 p-1.5 font-mono text-[6px] text-slate-400 leading-tight flex flex-col justify-between">
+              <div class="flex justify-between border-b border-purple-500/10 pb-0.5 mb-1"><span class="text-purple-400">AWS REGION</span><span class="text-purple-300">PING</span></div>
+              <div class="flex justify-between"><span>us-east-1:</span><span class="text-emerald-400">8ms</span></div>
+              <div class="flex justify-between"><span>eu-west-1:</span><span class="text-emerald-400">14ms</span></div>
+              <div class="flex justify-between"><span>ap-south-1:</span><span class="text-emerald-400">22ms</span></div>
+            </div>
+            <!-- DevOps tools -->
+            <div class="flex-1 flex flex-col gap-1 items-center justify-center">
+              <span class="text-[7px] text-purple-400 font-bold tracking-wider uppercase">CI/CD Deploy</span>
+              <div class="px-2 py-0.5 rounded bg-purple-500/10 border border-purple-400/30 text-[6px] text-purple-300 font-bold font-mono">deploy_prod.yml</div>
+              <div class="px-2 py-0.5 rounded bg-purple-500/10 border border-purple-400/30 text-[6px] text-purple-300 font-bold font-mono">STATUS: SUCCESS</div>
+            </div>
+          </div>
+          <!-- Footer Status -->
+          <div class="flex items-center justify-between text-[7px] text-purple-400/80 font-bold pt-1.5 border-t border-purple-400/10">
+            <span>SECURE VPC NETWORK</span>
+            <span>24/7 CLOUD WATCHING RUNNING</span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>

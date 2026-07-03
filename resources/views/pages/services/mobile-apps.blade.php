@@ -26,37 +26,154 @@
 @section('content')
 
 {{-- 1. HERO SECTION --}}
-<section class="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto relative z-10">
-  <div class="glass-panel rounded-2xl p-6 sm:p-12 border border-indigo-500/30 shadow-xl relative overflow-hidden">
-    <div class="max-w-3xl">
-      <span class="px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-400 text-xs font-bold uppercase tracking-wider border border-indigo-500/20 mb-4 inline-block">
-        Mobile App Development Service Provider
-      </span>
-      <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+<!-- 1. FUTURISTIC HOLOGRAPHIC HERO SECTION -->
+<section class="hero-futuristic-container w-full z-10 theme-indigo">
+  <div class="hero-glow-blob-1"></div>
+  <div class="hero-glow-blob-2"></div>
+  <div class="hero-glow-blob-3"></div>
+
+  <div class="hero-futuristic-grid">
+    <!-- Left Side: Marketing Content -->
+    <div class="flex flex-col justify-center text-left max-w-2xl mx-auto lg:mx-0">
+      <nav class="breadcrumb-nav mb-4" aria-label="Breadcrumb">
         <a href="{{ url('/') }}">Home</a>
         <span class="sep">/</span>
         <span class="current">Mobile Apps</span>
       </nav>
-      <h1 class="font-heading text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-4">
-        Mobile App Development Services for <span class="text-gradient">iOS, Android &amp; Flutter</span>
+
+      <div class="flex justify-center lg:justify-start">
+        <span class="trust-pill">
+          <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping"></span>
+          Native-Grade Mobile Engineering
+        </span>
+      </div>
+
+      <h1 class="font-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight mb-6 text-center lg:text-left">
+        Mobile App Development for <span class="text-gradient">iOS, Android & Flutter</span>
       </h1>
-      <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
-        Businesses can build mobile apps with freelancers, no-code tools, cross-platform studios, or full-service agencies. Tech Solution is the engineering partner for projects that need native-quality performance, secure authentication, offline capability, backend integration, and reliable App Store and Google Play deployment.
+
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0 text-center lg:text-left">
+        Businesses can build mobile apps with freelancers, no-code tools, or cross-platform builders. Tech Solution is the engineering partner for projects requiring offline capability, biometric protection, cloud synchronization, and reliable store submissions.
       </p>
-      <a href="#calculator" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-bold text-xs uppercase tracking-wider shadow-lg hover:scale-105 transition-all">
-        Estimate My Mobile App
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7-7 7M3 12h18" /></svg>
-      </a>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+        <a href="#calculator" class="w-full sm:w-auto btn-futuristic-primary text-center justify-center">
+          <span>Estimate My Mobile App</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7-7 7M3 12h18" /></svg>
+        </a>
+        <a href="#buyer-guide" class="w-full sm:w-auto btn-futuristic-secondary text-center justify-center">
+          <span>Compare Options</span>
+        </a>
+      </div>
     </div>
-    <!-- Service Hero Image -->
-    <div class="mt-8 rounded-xl overflow-hidden border border-indigo-500/20 shadow-xl shadow-indigo-500/10">
-      <img
-        src="{{ asset('images/services/mobile-apps.png') }}"
-        alt="Flutter mobile app development — iOS and Android app mockups built by Tech Solution"
-        class="w-full h-auto object-cover"
-        width="1200" height="600"
-        loading="eager" decoding="async"
-      />
+
+    <!-- Right Side: 3D Isometric Mobile App Stack -->
+    <div class="isometric-stack-container">
+      <!-- Floating Technology Chips -->
+      <span class="tech-chip" id="chip-laravel">Flutter</span>
+      <span class="tech-chip" id="chip-react">Dart</span>
+      <span class="tech-chip" id="chip-vite">Swift</span>
+      <span class="tech-chip" id="chip-tailwind">Kotlin</span>
+
+      <!-- 3D Perspective Viewport -->
+      <div class="isometric-stack-viewport">
+        <!-- Connecting Vertical Lasers (Standing perpendicular in 3D) -->
+        <div class="connector-line connector-line-1"></div>
+        <div class="connector-line connector-line-2"></div>
+        <div class="connector-line connector-line-3"></div>
+        <div class="connector-line connector-line-4"></div>
+
+        <!-- 1. Frontend Layer (Top) -->
+        <div class="stack-layer layer-frontend flex flex-col justify-between">
+          <!-- Glassmorphism Mock Phone Screen Header -->
+          <div class="flex items-center justify-between border-b border-cyan-400/20 pb-1.5 mb-2">
+            <span class="text-[7px] text-cyan-400 font-bold uppercase tracking-wider">iOS Device Frame</span>
+            <div class="flex gap-1.5 items-center">
+              <span class="text-[6px] text-slate-400 font-mono">10:42 AM</span>
+              <span class="w-2 h-1 bg-cyan-400/50 rounded-sm"></span>
+            </div>
+          </div>
+          <!-- Mock Mobile App Interface -->
+          <div class="flex-1 flex gap-2">
+            <div class="w-1/4 bg-slate-950/40 rounded p-1 flex flex-col justify-between border border-slate-800/50">
+              <div class="w-6 h-6 rounded-full bg-cyan-400/20 mx-auto flex items-center justify-center">
+                <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+              </div>
+              <div class="h-1.5 w-full bg-slate-700/40 rounded mt-1"></div>
+              <div class="h-1 w-2/3 bg-slate-700/40 rounded mt-0.5 mx-auto"></div>
+              <div class="h-2 w-full bg-cyan-400/10 rounded mt-1"></div>
+            </div>
+            <div class="flex-1 bg-slate-950/30 rounded p-1.5 border border-slate-800/50 flex flex-col justify-between">
+              <div class="flex justify-between items-center mb-1">
+                <span class="text-[7px] text-cyan-400 font-bold uppercase">Chat Support</span>
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              </div>
+              <div class="flex-1 flex flex-col gap-1.5 justify-end pb-1">
+                <div class="bg-cyan-500/20 text-[6px] text-cyan-300 p-1 rounded-sm w-3/4 self-start">How can I sync offline data?</div>
+                <div class="bg-slate-700/30 text-[6px] text-slate-300 p-1 rounded-sm w-3/4 self-end text-right">Biometrics enabled automatically.</div>
+              </div>
+            </div>
+          </div>
+          <!-- Footer Status -->
+          <div class="flex items-center justify-between text-[7px] text-cyan-400/80 font-bold pt-1.5 border-t border-cyan-400/10">
+            <span>MOBILE UI LAYOUT</span>
+            <span>FLUTTER NATIVE</span>
+          </div>
+        </div>
+
+        <!-- 2. Backend Layer (Middle) -->
+        <div class="stack-layer layer-backend flex flex-col justify-between">
+          <!-- Glassmorphism Mock Code Editor Header -->
+          <div class="flex items-center justify-between border-b border-sky-400/20 pb-1.5 mb-2">
+            <span class="text-[7px] text-sky-400 font-mono">main.dart</span>
+            <span class="text-[7px] text-slate-500 font-mono">UTF-8</span>
+          </div>
+          <!-- Code Block Mock -->
+          <div class="flex-1 font-mono text-[7px] text-slate-300 leading-normal flex flex-col justify-center">
+            <div><span class="text-sky-400">class</span> <span class="text-amber-300">AppShell</span> <span class="text-sky-400">extends</span> <span class="text-amber-300">StatelessWidget</span> {</div>
+            <div class="pl-3"><span class="text-sky-300">@override</span> Widget build(BuildContext context) {</div>
+            <div class="pl-6"><span class="text-purple-400">return</span> MaterialApp(theme: ThemeData.dark(), home: ProfileScreen());</div>
+            <div class="pl-3">}</div>
+            <div>}</div>
+          </div>
+          <!-- Footer Status -->
+          <div class="flex items-center justify-between text-[7px] text-sky-400/80 font-bold pt-1.5 border-t border-sky-400/10">
+            <span>DART/FLUTTER SDK</span>
+            <span class="text-emerald-400">SYNC SUCCESS</span>
+          </div>
+        </div>
+
+        <!-- 3. Database Layer (Bottom) -->
+        <div class="stack-layer layer-database flex flex-col justify-between">
+          <!-- Glassmorphism Schema Header -->
+          <div class="flex items-center justify-between border-b border-purple-400/20 pb-1.5 mb-2">
+            <span class="text-[7px] text-purple-400 font-mono">local_cache.db (SQLite)</span>
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          </div>
+          <!-- DB Schema Visual -->
+          <div class="flex-1 flex items-center justify-between gap-4">
+            <!-- Schema Card -->
+            <div class="w-1/2 bg-slate-950/50 rounded border border-purple-500/20 p-1.5 font-mono text-[6px] text-slate-400">
+              <div class="text-[7px] text-purple-400 font-bold border-b border-purple-500/10 pb-0.5 mb-1 uppercase">offline_sync</div>
+              <div>session_id : UUID [PK]</div>
+              <div>payload : BLOB</div>
+              <div>synced_at : TIMESTAMP</div>
+              <div>status : VARCHAR</div>
+            </div>
+            <!-- Sync indicators -->
+            <div class="flex-1 flex flex-col gap-1.5 items-center justify-center">
+              <div class="text-[7px] text-purple-400 font-bold tracking-wider uppercase">App Stores</div>
+              <div class="px-2 py-0.5 rounded bg-purple-500/10 border border-purple-400/30 text-[6px] text-purple-300 font-bold font-mono">APPLE_STORE_OK</div>
+              <div class="px-2 py-0.5 rounded bg-purple-500/10 border border-purple-400/30 text-[6px] text-purple-300 font-bold font-mono">GOOGLE_PLAY_OK</div>
+            </div>
+          </div>
+          <!-- Footer Status -->
+          <div class="flex items-center justify-between text-[7px] text-purple-400/80 font-bold pt-1.5 border-t border-purple-400/10">
+            <span>OFFLINE DB STORAGE</span>
+            <span>STORE ENGINE RUNNING</span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>

@@ -33,37 +33,156 @@
 @section('content')
 
 {{-- 1. HERO SECTION --}}
-<section class="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto relative z-10">
-  <div class="glass-panel rounded-2xl p-6 sm:p-12 border border-emerald-500/30 shadow-xl relative overflow-hidden">
-    <div class="max-w-3xl">
-      <span class="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-bold uppercase tracking-wider border border-emerald-500/20 mb-4 inline-block">
-        Odoo ERP Customization & Development
-      </span>
-      <nav class="breadcrumb-nav mb-4 text-slate-400 text-xs flex items-center gap-2" aria-label="Breadcrumb">
-        <a href="{{ url('/') }}" class="hover:text-emerald-400 transition-colors">Home</a>
+<!-- 1. FUTURISTIC HOLOGRAPHIC HERO SECTION -->
+<section class="hero-futuristic-container w-full z-10 theme-violet">
+  <div class="hero-glow-blob-1"></div>
+  <div class="hero-glow-blob-2"></div>
+  <div class="hero-glow-blob-3"></div>
+
+  <div class="hero-futuristic-grid">
+    <!-- Left Side: Marketing Content -->
+    <div class="flex flex-col justify-center text-left max-w-2xl mx-auto lg:mx-0">
+      <nav class="breadcrumb-nav mb-4" aria-label="Breadcrumb">
+        <a href="{{ url('/') }}">Home</a>
         <span class="sep">/</span>
         <span class="current text-emerald-400">Odoo ERP</span>
       </nav>
-      <h1 class="font-heading text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-4">
-        Odoo ERP Customization Services for <span class="text-gradient">Scalable Business Operations</span>
+
+      <div class="flex justify-center lg:justify-start">
+        <span class="trust-pill">
+          <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping"></span>
+          Integrated Enterprise Systems
+        </span>
+      </div>
+
+      <h1 class="font-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight mb-6 text-center lg:text-left">
+        Odoo ERP Customization for <span class="text-gradient">Scalable Operations</span>
       </h1>
-      <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
-        Businesses can deploy Odoo through out-of-the-box setup, certified partners, freelance consultants, or a specialized development agency. Tech Solution is the technical partner for companies that need custom module development, deep workflow automation, third-party integrations, clean data migrations, and a reliable team that owns delivery from scoping through go-live and beyond.
+
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0 text-center lg:text-left">
+        Businesses can deploy Odoo through out-of-the-box templates or freelancers. Tech Solution is the engineering partner for modules requiring Python customizations, legacy database migrations, and deep CRM/accounting workflow automations.
       </p>
-      <a href="#calculator" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-emerald-400 to-teal-500 text-slate-950 font-bold text-xs uppercase tracking-wider shadow-lg hover:scale-105 transition-all">
-        Estimate My Odoo Project
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7-7 7M3 12h18" /></svg>
-      </a>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+        <a href="#calculator" class="w-full sm:w-auto btn-futuristic-primary text-center justify-center">
+          <span>Estimate My Odoo Project</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7-7 7M3 12h18" /></svg>
+        </a>
+        <a href="#buyer-guide" class="w-full sm:w-auto btn-futuristic-secondary text-center justify-center">
+          <span>Compare Options</span>
+        </a>
+      </div>
     </div>
-    <!-- Service Hero Image -->
-    <div class="mt-8 rounded-xl overflow-hidden border border-emerald-500/20 shadow-xl shadow-emerald-500/10">
-      <img
-        src="{{ asset('images/services/odoo-erp.png') }}"
-        alt="Odoo ERP dashboard — CRM, inventory management and financial reporting modules by Tech Solution"
-        class="w-full h-auto object-cover"
-        width="1200" height="600"
-        loading="eager" decoding="async"
-      />
+
+    <!-- Right Side: 3D Isometric Odoo Stack -->
+    <div class="isometric-stack-container">
+      <!-- Floating Technology Chips -->
+      <span class="tech-chip" id="chip-laravel">Python</span>
+      <span class="tech-chip" id="chip-react">XML</span>
+      <span class="tech-chip" id="chip-vite">Postgres</span>
+      <span class="tech-chip" id="chip-tailwind">Docker</span>
+
+      <!-- 3D Perspective Viewport -->
+      <div class="isometric-stack-viewport">
+        <!-- Connecting Vertical Lasers (Standing perpendicular in 3D) -->
+        <div class="connector-line connector-line-1"></div>
+        <div class="connector-line connector-line-2"></div>
+        <div class="connector-line connector-line-3"></div>
+        <div class="connector-line connector-line-4"></div>
+
+        <!-- 1. Frontend Layer (Top) - CRM & Sales Module -->
+        <div class="stack-layer layer-frontend flex flex-col justify-between">
+          <!-- Glassmorphism Odoo CRM Header -->
+          <div class="flex items-center justify-between border-b border-cyan-400/20 pb-1.5 mb-2">
+            <span class="text-[8px] font-bold text-white tracking-wider font-sans">CRM & Sales Module</span>
+            <div class="bg-slate-950/50 text-[6px] text-cyan-400 px-2 py-0.5 rounded border border-cyan-500/20 font-mono">
+              Lead Pipe Sync
+            </div>
+          </div>
+          <!-- CRM Feed Grid -->
+          <div class="flex-1 flex gap-2">
+            <div class="w-1/3 bg-slate-950/40 rounded p-1 flex flex-col justify-between border border-slate-800/50">
+              <span class="text-[6px] text-cyan-400 font-bold uppercase">Pipeline</span>
+              <div class="h-2 w-full bg-cyan-400/25 rounded"></div>
+              <div class="h-1.5 w-5/6 bg-slate-700/40 rounded mt-0.5"></div>
+              <div class="h-1.5 w-2/3 bg-slate-700/40 rounded mt-0.5"></div>
+            </div>
+            <div class="flex-1 bg-slate-950/30 rounded p-1.5 border border-slate-800/50 flex flex-col justify-between font-mono text-[6px] text-slate-300">
+              <div class="flex justify-between items-center mb-0.5 pb-0.5 border-b border-slate-800/80">
+                <span class="text-cyan-400">Order Ref</span>
+                <span class="text-emerald-400">Status</span>
+              </div>
+              <div class="flex justify-between"><span>SO_2049_A</span><span class="text-emerald-400">CONFIRMED</span></div>
+              <div class="flex justify-between"><span>SO_2049_B</span><span class="text-amber-400">PENDING</span></div>
+              <div class="flex justify-between"><span>SO_2049_C</span><span class="text-emerald-400">SHIPPED</span></div>
+            </div>
+          </div>
+          <!-- Footer Status -->
+          <div class="flex items-center justify-between text-[7px] text-cyan-400/80 font-bold pt-1.5 border-t border-cyan-400/10">
+            <span>CRM PIPELINE MODULE</span>
+            <span>AUTO-INVOICING ON</span>
+          </div>
+        </div>
+
+        <!-- 2. Backend Layer (Middle) - Inventory & Logistics -->
+        <div class="stack-layer layer-backend flex flex-col justify-between">
+          <!-- Glassmorphism Inventory Header -->
+          <div class="flex items-center justify-between border-b border-sky-400/20 pb-1.5 mb-2">
+            <span class="text-[7px] text-sky-400 font-mono">Inventory & Supply Chain</span>
+            <span class="text-[7px] text-emerald-400 font-mono">Reorder Rules Active</span>
+          </div>
+          <!-- Inventory Level bars -->
+          <div class="flex-1 flex flex-col justify-center gap-1.5">
+            <div class="flex justify-between items-center bg-slate-950/40 p-1 rounded border border-slate-800/40 font-mono text-[6px]">
+              <span class="text-slate-300">SKU_A (Main warehouse)</span>
+              <span class="text-emerald-400 font-bold">Qty: 242 (Safe)</span>
+            </div>
+            <div class="flex justify-between items-center bg-slate-950/40 p-1 rounded border border-slate-800/40 font-mono text-[6px]">
+              <span class="text-slate-300">SKU_B (Transit hub)</span>
+              <span class="text-amber-400 font-bold">Qty: 48 (Reorder Trigger)</span>
+            </div>
+            <div class="flex justify-between items-center bg-slate-950/40 p-1 rounded border border-slate-800/40 font-mono text-[6px]">
+              <span class="text-slate-300">SKU_C (Fulfillment center)</span>
+              <span class="text-emerald-400 font-bold">Qty: 890 (Safe)</span>
+            </div>
+          </div>
+          <!-- Footer Status -->
+          <div class="flex items-center justify-between text-[7px] text-sky-400/80 font-bold pt-1.5 border-t border-sky-400/10">
+            <span>INVENTORY LOGISTICS</span>
+            <span>WH_STOCK_SYNC OK</span>
+          </div>
+        </div>
+
+        <!-- 3. Database Layer (Bottom) - Accounting & Ledger -->
+        <div class="stack-layer layer-database flex flex-col justify-between">
+          <!-- Glassmorphism Accounting Header -->
+          <div class="flex items-center justify-between border-b border-purple-400/20 pb-1.5 mb-2">
+            <span class="text-[7px] text-purple-400 font-mono">Double-Entry Ledger Account</span>
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          </div>
+          <!-- Accounting Details -->
+          <div class="flex-1 flex items-center justify-between gap-4">
+            <!-- Account table -->
+            <div class="w-1/2 bg-slate-950/50 rounded border border-purple-500/20 p-1.5 font-mono text-[6px] text-slate-400 leading-tight">
+              <div class="text-[7px] text-purple-400 font-bold border-b border-purple-500/10 pb-0.5 mb-1 uppercase">trial_balance</div>
+              <div class="flex justify-between"><span>Assets:</span><span class="text-emerald-400">+$24K</span></div>
+              <div class="flex justify-between"><span>Equity:</span><span class="text-slate-300">$10K</span></div>
+              <div class="flex justify-between"><span>Liabilities:</span><span class="text-rose-400">-$4K</span></div>
+            </div>
+            <!-- Sync indicators -->
+            <div class="flex-1 flex flex-col gap-1 items-center justify-center">
+              <span class="text-[7px] text-purple-400 font-bold tracking-wider uppercase">Custom Code</span>
+              <div class="px-2 py-0.5 rounded bg-purple-500/10 border border-purple-400/30 text-[6px] text-purple-300 font-bold font-mono">odoo_api.py</div>
+              <div class="px-2 py-0.5 rounded bg-purple-500/10 border border-purple-400/30 text-[6px] text-purple-300 font-bold font-mono">xml_views.xml</div>
+            </div>
+          </div>
+          <!-- Footer Status -->
+          <div class="flex items-center justify-between text-[7px] text-purple-400/80 font-bold pt-1.5 border-t border-purple-400/10">
+            <span>FINANCIAL CENTRAL LEDGER</span>
+            <span>TAX ENGINE CALC ACTIVE</span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>

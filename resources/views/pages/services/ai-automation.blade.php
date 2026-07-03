@@ -33,37 +33,152 @@
 @section('content')
 
 {{-- 1. HERO SECTION --}}
-<section class="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto relative z-10">
-  <div class="glass-panel rounded-2xl p-6 sm:p-12 border border-violet-500/30 shadow-xl relative overflow-hidden">
-    <div class="max-w-3xl">
-      <span class="px-3 py-1 rounded-full bg-violet-500/10 text-violet-400 text-xs font-bold uppercase tracking-wider border border-violet-500/20 mb-4 inline-block">
-        AI Automation Service Provider
-      </span>
-      <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+<!-- 1. FUTURISTIC HOLOGRAPHIC HERO SECTION -->
+<section class="hero-futuristic-container w-full z-10 theme-purple">
+  <div class="hero-glow-blob-1"></div>
+  <div class="hero-glow-blob-2"></div>
+  <div class="hero-glow-blob-3"></div>
+
+  <div class="hero-futuristic-grid">
+    <!-- Left Side: Marketing Content -->
+    <div class="flex flex-col justify-center text-left max-w-2xl mx-auto lg:mx-0">
+      <nav class="breadcrumb-nav mb-4" aria-label="Breadcrumb">
         <a href="{{ url('/') }}">Home</a>
         <span class="sep">/</span>
         <span class="current">AI Automation</span>
       </nav>
-      <h1 class="font-heading text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-4">
-        AI Automation Services That <span class="text-gradient">Eliminate Manual Work</span> and Scale Your Operations
+
+      <div class="flex justify-center lg:justify-start">
+        <span class="trust-pill">
+          <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping"></span>
+          Intelligent Workflow Agents
+        </span>
+      </div>
+
+      <h1 class="font-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight mb-6 text-center lg:text-left">
+        AI Automation to <span class="text-gradient">Eliminate Manual Work</span>
       </h1>
-      <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
-        Businesses waste thousands of hours on repetitive tasks — data entry, document processing, customer responses, report generation, and approval workflows. Tech Solution builds custom AI automation systems that replace those manual bottlenecks with intelligent pipelines, LLM-powered tools, and process automation that runs 24/7 without errors.
+
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0 text-center lg:text-left">
+        Businesses waste thousands of hours on repetitive tasks. Tech Solution builds custom AI automation pipelines, LLM-powered tools, and process triggers that run 24/7 without error.
       </p>
-      <a href="#contact" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-violet-500 to-purple-600 text-white font-bold text-xs uppercase tracking-wider shadow-lg hover:scale-105 transition-all">
-        Discuss My Automation Project
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7-7 7M3 12h18" /></svg>
-      </a>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+        <a href="#contact" class="w-full sm:w-auto btn-futuristic-primary text-center justify-center">
+          <span>Discuss My Automation Project</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7-7 7M3 12h18" /></svg>
+        </a>
+        <a href="#buyer-guide" class="w-full sm:w-auto btn-futuristic-secondary text-center justify-center">
+          <span>Compare Options</span>
+        </a>
+      </div>
     </div>
-    <!-- Service Hero Image -->
-    <div class="mt-8 rounded-xl overflow-hidden border border-violet-500/20 shadow-xl shadow-violet-500/10">
-      <img
-        src="{{ asset('images/services/ai-automation.png') }}"
-        alt="AI automation workflow — neural network pipelines and LLM-powered process automation by Tech Solution"
-        class="w-full h-auto object-cover"
-        width="1200" height="600"
-        loading="eager" decoding="async"
-      />
+
+    <!-- Right Side: 3D Isometric AI Stack -->
+    <div class="isometric-stack-container">
+      <!-- Floating Technology Chips -->
+      <span class="tech-chip" id="chip-laravel">OpenAI</span>
+      <span class="tech-chip" id="chip-react">Python</span>
+      <span class="tech-chip" id="chip-vite">LangChain</span>
+      <span class="tech-chip" id="chip-tailwind">n8n</span>
+
+      <!-- 3D Perspective Viewport -->
+      <div class="isometric-stack-viewport">
+        <!-- Connecting Vertical Lasers (Standing perpendicular in 3D) -->
+        <div class="connector-line connector-line-1"></div>
+        <div class="connector-line connector-line-2"></div>
+        <div class="connector-line connector-line-3"></div>
+        <div class="connector-line connector-line-4"></div>
+
+        <!-- 1. Frontend Layer (Top) - Prompt & Input Interface -->
+        <div class="stack-layer layer-frontend flex flex-col justify-between">
+          <!-- Glassmorphism AI Input Header -->
+          <div class="flex items-center justify-between border-b border-cyan-400/20 pb-1.5 mb-2">
+            <span class="text-[8px] font-bold text-white tracking-wider font-sans">Prompt & Agent Input</span>
+            <div class="bg-slate-950/50 text-[6px] text-cyan-400 px-2 py-0.5 rounded border border-cyan-500/20 font-mono">
+              tokens: 142
+            </div>
+          </div>
+          <!-- Prompt Text Area Mockup -->
+          <div class="flex-1 flex gap-2">
+            <div class="flex-1 bg-slate-950/40 rounded p-1.5 border border-slate-800/50 flex flex-col justify-between">
+              <span class="text-[6.5px] text-cyan-300 font-mono leading-relaxed">
+                "Analyze recent lead emails, categorize customer intent, write summary, and sync to CRM..."
+              </span>
+              <div class="h-2 w-12 bg-cyan-400/20 rounded mt-1.5 self-end flex items-center justify-center text-[6px] text-cyan-300">
+                RUNNING
+              </div>
+            </div>
+          </div>
+          <!-- Footer Status -->
+          <div class="flex items-center justify-between text-[7px] text-cyan-400/80 font-bold pt-1.5 border-t border-cyan-400/10">
+            <span>LLM PROMPT AGENT</span>
+            <span>INTENT ENGINE ACTIVE</span>
+          </div>
+        </div>
+
+        <!-- 2. Backend Layer (Middle) - Execution Workflow Pipelines -->
+        <div class="stack-layer layer-backend flex flex-col justify-between">
+          <!-- Glassmorphism Pipeline Header -->
+          <div class="flex items-center justify-between border-b border-sky-400/20 pb-1.5 mb-2">
+            <span class="text-[7px] text-sky-400 font-mono">workflow_pipeline.py</span>
+            <span class="text-[7px] text-emerald-400 font-mono">Trigger: Webhook</span>
+          </div>
+          <!-- Pipeline Visual Nodes -->
+          <div class="flex-1 flex flex-col justify-center gap-1">
+            <div class="flex items-center gap-2 font-mono text-[6px]">
+              <span class="px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">TRIGGER</span>
+              <span class="text-slate-400">Incoming Customer Email</span>
+            </div>
+            <div class="h-3 w-px bg-slate-700 ml-6"></div>
+            <div class="flex items-center gap-2 font-mono text-[6px]">
+              <span class="px-1.5 py-0.5 rounded bg-purple-500/10 text-purple-400 border border-purple-500/20">PROCESS</span>
+              <span class="text-slate-400">LLM Sentiment Extraction</span>
+            </div>
+            <div class="h-3 w-px bg-slate-700 ml-6"></div>
+            <div class="flex items-center gap-2 font-mono text-[6px]">
+              <span class="px-1.5 py-0.5 rounded bg-sky-500/10 text-sky-400 border border-sky-500/20">ACTION</span>
+              <span class="text-slate-400">Post CRM + Alert Slack</span>
+            </div>
+          </div>
+          <!-- Footer Status -->
+          <div class="flex items-center justify-between text-[7px] text-sky-400/80 font-bold pt-1.5 border-t border-sky-400/10">
+            <span>COGNITIVE ORCHESTRATION</span>
+            <span>PIPELINE INSTANCE #104</span>
+          </div>
+        </div>
+
+        <!-- 3. Database Layer (Bottom) - Model Metrics & Logs -->
+        <div class="stack-layer layer-database flex flex-col justify-between">
+          <!-- Glassmorphism Model metrics Header -->
+          <div class="flex items-center justify-between border-b border-purple-400/20 pb-1.5 mb-2">
+            <span class="text-[7px] text-purple-400 font-mono">GPT-4o API Node Stats</span>
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          </div>
+          <!-- Model Telemetry Details -->
+          <div class="flex-1 flex items-center justify-between gap-4">
+            <!-- Telemetry List -->
+            <div class="w-1/2 bg-slate-950/50 rounded border border-purple-500/20 p-1.5 font-mono text-[6px] text-slate-400 leading-tight flex flex-col justify-between">
+              <div class="flex justify-between border-b border-purple-500/10 pb-0.5 mb-1"><span class="text-purple-400">METRIC</span><span class="text-purple-300">VALUE</span></div>
+              <div class="flex justify-between"><span>Latency:</span><span class="text-emerald-400">0.84s</span></div>
+              <div class="flex justify-between"><span>Cache Hit:</span><span class="text-emerald-400">92%</span></div>
+              <div class="flex justify-between"><span>Tokens In:</span><span class="text-slate-300">82.1K</span></div>
+              <div class="flex justify-between"><span>Tokens Out:</span><span class="text-slate-300">14.8K</span></div>
+            </div>
+            <!-- Sync indicators -->
+            <div class="flex-1 flex flex-col gap-1 items-center justify-center">
+              <span class="text-[7px] text-purple-400 font-bold tracking-wider uppercase">Inference Logs</span>
+              <div class="px-2 py-0.5 rounded bg-purple-500/10 border border-purple-400/30 text-[6px] text-purple-300 font-bold font-mono">AGENT_OK</div>
+              <div class="px-2 py-0.5 rounded bg-purple-500/10 border border-purple-400/30 text-[6px] text-purple-300 font-bold font-mono">COST: $0.042</div>
+            </div>
+          </div>
+          <!-- Footer Status -->
+          <div class="flex items-center justify-between text-[7px] text-purple-400/80 font-bold pt-1.5 border-t border-purple-400/10">
+            <span>LLM NODE ENDPOINT</span>
+            <span>SYNC DATA SECURE</span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>

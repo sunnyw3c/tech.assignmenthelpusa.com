@@ -26,37 +26,156 @@
 @section('content')
 
 {{-- 1. HERO SECTION --}}
-<section class="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto relative z-10">
-  <div class="glass-panel rounded-2xl p-6 sm:p-12 border border-purple-500/30 shadow-xl relative overflow-hidden">
-    <div class="max-w-3xl">
-      <span class="px-3 py-1 rounded-full bg-purple-500/10 text-purple-400 text-xs font-bold uppercase tracking-wider border border-purple-500/20 mb-4 inline-block">
-        SEO Optimization Service Provider
-      </span>
-      <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+<!-- 1. FUTURISTIC HOLOGRAPHIC HERO SECTION -->
+<section class="hero-futuristic-container w-full z-10 theme-purple">
+  <div class="hero-glow-blob-1"></div>
+  <div class="hero-glow-blob-2"></div>
+  <div class="hero-glow-blob-3"></div>
+
+  <div class="hero-futuristic-grid">
+    <!-- Left Side: Marketing Content -->
+    <div class="flex flex-col justify-center text-left max-w-2xl mx-auto lg:mx-0">
+      <nav class="breadcrumb-nav mb-4" aria-label="Breadcrumb">
         <a href="{{ url('/') }}">Home</a>
         <span class="sep">/</span>
         <span class="current">SEO Optimization</span>
       </nav>
-      <h1 class="font-heading text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-4">
-        SEO Optimization Services for <span class="text-gradient">Technical Rank &amp; Organic Growth</span>
+
+      <div class="flex justify-center lg:justify-start">
+        <span class="trust-pill">
+          <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping"></span>
+          Technical Audit & Rank Growth
+        </span>
+      </div>
+
+      <h1 class="font-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight mb-6 text-center lg:text-left">
+        SEO Optimization for <span class="text-gradient">Technical Rank & Growth</span>
       </h1>
-      <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
-        Businesses can improve organic search through in-house teams, freelance consultants, link-building agencies, or full-service SEO providers. Tech Solution is the technical partner for programs that need audits, Core Web Vitals fixes, structured data, keyword architecture, programmatic content, and measurable rank improvements — all under one accountable team.
+
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0 text-center lg:text-left">
+        Businesses can build organic reach through freelancers, consultants, or link builders. Tech Solution is the technical engineering partner for systems requiring deep web audits, Core Web Vitals speed alignment, JSON-LD schema, and programmatic scale.
       </p>
-      <a href="#calculator" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-purple-500 to-indigo-600 text-white font-bold text-xs uppercase tracking-wider shadow-lg hover:scale-105 transition-all">
-        Estimate My SEO Program
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7-7 7M3 12h18" /></svg>
-      </a>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+        <a href="#calculator" class="w-full sm:w-auto btn-futuristic-primary text-center justify-center">
+          <span>Estimate My SEO Program</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7-7 7M3 12h18" /></svg>
+        </a>
+        <a href="#buyer-guide" class="w-full sm:w-auto btn-futuristic-secondary text-center justify-center">
+          <span>Compare Options</span>
+        </a>
+      </div>
     </div>
-    <!-- Service Hero Image -->
-    <div class="mt-8 rounded-xl overflow-hidden border border-purple-500/20 shadow-xl shadow-purple-500/10">
-      <img
-        src="{{ asset('images/services/seo-optimization.png') }}"
-        alt="SEO analytics dashboard — rank tracking, Core Web Vitals, and organic traffic growth by Tech Solution"
-        class="w-full h-auto object-cover"
-        width="1200" height="600"
-        loading="eager" decoding="async"
-      />
+
+    <!-- Right Side: 3D Isometric SEO Stack -->
+    <div class="isometric-stack-container">
+      <!-- Floating Technology Chips -->
+      <span class="tech-chip" id="chip-laravel">GA4</span>
+      <span class="tech-chip" id="chip-react">Schema</span>
+      <span class="tech-chip" id="chip-vite">Ahrefs</span>
+      <span class="tech-chip" id="chip-tailwind">GSC</span>
+
+      <!-- 3D Perspective Viewport -->
+      <div class="isometric-stack-viewport">
+        <!-- Connecting Vertical Lasers (Standing perpendicular in 3D) -->
+        <div class="connector-line connector-line-1"></div>
+        <div class="connector-line connector-line-2"></div>
+        <div class="connector-line connector-line-3"></div>
+        <div class="connector-line connector-line-4"></div>
+
+        <!-- 1. Frontend Layer (Top) - Google SERP Rank -->
+        <div class="stack-layer layer-frontend flex flex-col justify-between">
+          <!-- Glassmorphism Google Header -->
+          <div class="flex items-center justify-between border-b border-cyan-400/20 pb-1.5 mb-2">
+            <span class="text-[8px] font-bold text-white tracking-wider font-sans">Google Search Results</span>
+            <div class="bg-slate-950/50 text-[6px] text-emerald-400 px-2 py-0.5 rounded border border-emerald-500/20 font-mono font-bold">
+              Rank #1
+            </div>
+          </div>
+          <!-- Mock SERP Card -->
+          <div class="flex-1 bg-slate-950/40 rounded p-2 border border-slate-800/50 flex flex-col justify-between">
+            <div>
+              <div class="text-[6px] text-slate-400 font-mono">https://yourbrand.com/service-page</div>
+              <div class="text-[9px] text-cyan-400 font-bold hover:underline cursor-pointer leading-tight">Best Enterprise Web Solutions & Services</div>
+              <!-- Glowing rating stars -->
+              <div class="flex items-center gap-1 mt-0.5">
+                <span class="text-amber-400 text-[8px]">★★★★★</span>
+                <span class="text-[6px] text-slate-500">Rating: 5.0 - 42 votes - Price range: $$$</span>
+              </div>
+            </div>
+            <div class="text-[6.5px] text-slate-300 leading-snug">
+              Get high-performance custom Laravel development, Flutter apps, and technical SEO optimizations engineered for global enterprise scalability...
+            </div>
+          </div>
+          <!-- Footer Status -->
+          <div class="flex items-center justify-between text-[7px] text-cyan-400/80 font-bold pt-1.5 border-t border-cyan-400/10">
+            <span>GOOGLE SERP LAYOUT</span>
+            <span>+42% CTR GROWTH</span>
+          </div>
+        </div>
+
+        <!-- 2. Backend Layer (Middle) - Keywords & Semantic Core -->
+        <div class="stack-layer layer-backend flex flex-col justify-between">
+          <!-- Glassmorphism Keyword Audit Header -->
+          <div class="flex items-center justify-between border-b border-sky-400/20 pb-1.5 mb-2">
+            <span class="text-[7px] text-sky-400 font-mono">keywords_map.json</span>
+            <span class="text-[7px] text-emerald-400 font-mono">Index: Success</span>
+          </div>
+          <!-- Keywords Map View -->
+          <div class="flex-1 flex flex-col justify-center gap-1.5">
+            <div class="flex justify-between items-center bg-slate-950/40 p-1 rounded border border-slate-800/40">
+              <span class="text-[7px] text-slate-300 font-mono">"laravel development"</span>
+              <span class="text-[6px] text-emerald-400 font-bold">Vol: 12.4K / Difficulty: 24</span>
+            </div>
+            <div class="flex justify-between items-center bg-slate-950/40 p-1 rounded border border-slate-800/40">
+              <span class="text-[7px] text-slate-300 font-mono">"flutter mobile app"</span>
+              <span class="text-[6px] text-emerald-400 font-bold">Vol: 8.2K / Difficulty: 18</span>
+            </div>
+            <div class="flex justify-between items-center bg-slate-950/40 p-1 rounded border border-slate-800/40">
+              <span class="text-[7px] text-slate-300 font-mono">"technical seo agency"</span>
+              <span class="text-[6px] text-emerald-400 font-bold">Vol: 3.1K / Difficulty: 12</span>
+            </div>
+          </div>
+          <!-- Footer Status -->
+          <div class="flex items-center justify-between text-[7px] text-sky-400/80 font-bold pt-1.5 border-t border-sky-400/10">
+            <span>SEMANTIC STRUCTURE</span>
+            <span>2.4K TARGET PHRASES</span>
+          </div>
+        </div>
+
+        <!-- 3. Database Layer (Bottom) - Audit / Schema -->
+        <div class="stack-layer layer-database flex flex-col justify-between">
+          <!-- Glassmorphism Audit Header -->
+          <div class="flex items-center justify-between border-b border-purple-400/20 pb-1.5 mb-2">
+            <span class="text-[7px] text-purple-400 font-mono">JSON-LD Schema Markup</span>
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          </div>
+          <!-- DB Audit Schema visual -->
+          <div class="flex-1 flex items-center justify-between gap-4">
+            <!-- Structured Data JSON -->
+            <div class="w-1/2 bg-slate-950/50 rounded border border-purple-500/20 p-1.5 font-mono text-[6px] text-slate-400 leading-tight">
+              <div>{</div>
+              <div class="pl-2">"@type": "Service",</div>
+              <div class="pl-2">"name": "SEO Consulting",</div>
+              <div class="pl-2">"provider": "Tech Solution",</div>
+              <div class="pl-2">"areaServed": "US, UK, UAE"</div>
+              <div>}</div>
+            </div>
+            <!-- Technical Audit scores -->
+            <div class="flex-1 flex flex-col gap-1 items-center justify-center">
+              <span class="text-[7px] text-purple-400 font-bold tracking-wider uppercase">Crawl Audit</span>
+              <div class="px-2 py-0.5 rounded bg-purple-500/10 border border-purple-400/30 text-[6px] text-purple-300 font-bold font-mono">LCP: 0.8s (PASS)</div>
+              <div class="px-2 py-0.5 rounded bg-purple-500/10 border border-purple-400/30 text-[6px] text-purple-300 font-bold font-mono">CLS: 0.01 (PASS)</div>
+              <div class="px-2 py-0.5 rounded bg-purple-500/10 border border-purple-400/30 text-[6px] text-purple-300 font-bold font-mono">FID: 12ms (PASS)</div>
+            </div>
+          </div>
+          <!-- Footer Status -->
+          <div class="flex items-center justify-between text-[7px] text-purple-400/80 font-bold pt-1.5 border-t border-purple-400/10">
+            <span>CORE WEB VITALS METRICS</span>
+            <span>100% CRAWL COMPLIANT</span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>

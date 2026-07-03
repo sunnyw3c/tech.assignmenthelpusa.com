@@ -1258,3 +1258,341 @@ html.light .breadcrumb-nav .current { color: #0284c7; }
   #panel-cloud { bottom: 5%; right: 2%; scale: 0.9; }
 }
 
+/* ============================================================
+   3D ISOMETRIC WEB APPLICATION STACK
+   ============================================================ */
+
+.isometric-stack-container {
+  position: relative;
+  width: 100%;
+  height: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1200px;
+  transform-style: preserve-3d;
+}
+
+.isometric-stack-viewport {
+  position: relative;
+  width: 320px;
+  height: 240px;
+  transform: rotateX(58deg) rotateY(0deg) rotateZ(-38deg);
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.isometric-stack-container:hover .isometric-stack-viewport {
+  transform: rotateX(54deg) rotateY(0deg) rotateZ(-32deg) translateY(-10px);
+}
+
+/* Layer Base Styles */
+.stack-layer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 320px;
+  height: 220px;
+  background: rgba(8, 12, 30, 0.45);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 16px;
+  padding: 1.25rem;
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), 
+              border-color 0.4s ease, 
+              box-shadow 0.4s ease;
+  transform-style: preserve-3d;
+  color: #ffffff;
+}
+
+/* 3D Spacing (Rest State) */
+.layer-frontend {
+  transform: translate3d(0, 0, 90px);
+  z-index: 3;
+  border: 1.5px solid rgba(34, 211, 238, 0.35);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 20px rgba(34, 211, 238, 0.1);
+}
+
+.layer-backend {
+  transform: translate3d(0, 0, 0px);
+  z-index: 2;
+  border: 1.5px solid rgba(56, 189, 248, 0.3);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 20px rgba(56, 189, 248, 0.08);
+}
+
+.layer-database {
+  transform: translate3d(0, 0, -90px);
+  z-index: 1;
+  border: 1.5px solid rgba(139, 92, 246, 0.3);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 20px rgba(139, 92, 246, 0.08);
+}
+
+/* 3D Spacing (Hover Expansion State) */
+.isometric-stack-container:hover .layer-frontend {
+  transform: translate3d(0, 0, 170px);
+  border-color: rgba(34, 211, 238, 0.7);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6), 0 0 35px rgba(34, 211, 238, 0.35);
+}
+
+.isometric-stack-container:hover .layer-backend {
+  transform: translate3d(0, 0, 0px);
+  border-color: rgba(56, 189, 248, 0.6);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), 0 0 30px rgba(56, 189, 248, 0.25);
+}
+
+.isometric-stack-container:hover .layer-database {
+  transform: translate3d(0, 0, -170px);
+  border-color: rgba(139, 92, 246, 0.7);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), 0 0 35px rgba(139, 92, 246, 0.35);
+}
+
+/* 3D Laser Connectors */
+.connector-line {
+  position: absolute;
+  width: 1.5px;
+  height: 180px; /* Spanning from Z: -90px to +90px */
+  background: linear-gradient(180deg, 
+    rgba(34, 211, 238, 0.1) 0%, 
+    rgba(56, 189, 248, 0.8) 50%, 
+    rgba(139, 92, 246, 0.1) 100%
+  );
+  background-size: 100% 200%;
+  transform: rotateX(-90deg) translate3d(0, 0, 90px); /* Stand up vertically */
+  transform-origin: top;
+  opacity: 0.35;
+  transition: height 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), 
+              transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), 
+              opacity 0.4s ease;
+  pointer-events: none;
+  animation: laser-flow 4s linear infinite;
+}
+
+@keyframes laser-flow {
+  0% { background-position: 0% -200%; }
+  100% { background-position: 0% 200%; }
+}
+
+.connector-line-1 { left: 16px; top: 16px; }
+.connector-line-2 { right: 16px; top: 16px; }
+.connector-line-3 { left: 16px; bottom: 16px; }
+.connector-line-4 { right: 16px; bottom: 16px; }
+
+/* Laser Spanning on Hover */
+.isometric-stack-container:hover .connector-line {
+  height: 340px; /* Spanning from Z: -170px to +170px */
+  transform: rotateX(-90deg) translate3d(0, 0, 170px);
+  opacity: 0.75;
+}
+
+/* Floating Tech Chips */
+.tech-chip {
+  position: absolute;
+  padding: 0.375rem 0.75rem;
+  background: rgba(8, 12, 30, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 9999px;
+  font-family: var(--font-heading);
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #ffffff;
+  backdrop-filter: blur(8px);
+  white-space: nowrap;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
+  z-index: 10;
+  pointer-events: none;
+}
+
+#chip-laravel {
+  top: 18%;
+  left: 3%;
+  border-color: rgba(239, 68, 68, 0.45);
+  color: #f87171;
+  box-shadow: 0 0 15px rgba(239, 68, 68, 0.15);
+  animation: float-chip-1 7s infinite ease-in-out;
+}
+
+#chip-react {
+  top: 25%;
+  right: 2%;
+  border-color: rgba(6, 182, 212, 0.45);
+  color: #22d3ee;
+  box-shadow: 0 0 15px rgba(6, 182, 212, 0.15);
+  animation: float-chip-2 6s infinite ease-in-out 1s;
+}
+
+#chip-vite {
+  bottom: 22%;
+  left: 5%;
+  border-color: rgba(139, 92, 246, 0.45);
+  color: #c084fc;
+  box-shadow: 0 0 15px rgba(139, 92, 246, 0.15);
+  animation: float-chip-3 8s infinite ease-in-out 0.5s;
+}
+
+#chip-tailwind {
+  bottom: 16%;
+  right: 6%;
+  border-color: rgba(56, 189, 248, 0.45);
+  color: #38bdf8;
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.15);
+  animation: float-chip-1 6.5s infinite ease-in-out 1.5s;
+}
+
+@keyframes float-chip-1 {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(3deg); }
+}
+
+@keyframes float-chip-2 {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(-3deg); }
+}
+
+@keyframes float-chip-3 {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-18px) rotate(2deg); }
+}
+
+/* Responsiveness for Isometric Stack */
+@media (max-width: 1024px) {
+  .isometric-stack-container {
+    max-width: 500px;
+    margin: 0 auto;
+    height: 480px;
+  }
+}
+
+@media (max-width: 640px) {
+  .isometric-stack-container {
+    height: 420px;
+  }
+  .isometric-stack-viewport {
+    width: 280px;
+    height: 200px;
+    transform: rotateX(54deg) rotateY(0deg) rotateZ(-30deg) scale(0.85);
+  }
+  .stack-layer {
+    width: 280px;
+    height: 200px;
+    padding: 1rem;
+  }
+  /* Scale offsets for smaller screens */
+  .layer-frontend { transform: translate3d(0, 0, 70px); }
+  .layer-backend { transform: translate3d(0, 0, 0px); }
+  .layer-database { transform: translate3d(0, 0, -70px); }
+  
+  .isometric-stack-container:hover .layer-frontend { transform: translate3d(0, 0, 110px); }
+  .isometric-stack-container:hover .layer-database { transform: translate3d(0, 0, -110px); }
+  
+  .connector-line { height: 140px; transform: rotateX(-90deg) translate3d(0, 0, 70px); }
+  .isometric-stack-container:hover .connector-line { height: 220px; transform: rotateX(-90deg) translate3d(0, 0, 110px); }
+  
+  .tech-chip { display: none; } /* Hide chips on small mobile to avoid clutter */
+}
+
+/* ============================================================
+   ISOMETRIC STACK THEMES
+   ============================================================ */
+
+/* Theme: Purple / Fuchsia / Pink (SEO & AI Automation) */
+.theme-purple .layer-frontend {
+  border-color: rgba(168, 85, 247, 0.35);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 20px rgba(168, 85, 247, 0.1);
+}
+.theme-purple .layer-backend {
+  border-color: rgba(217, 70, 239, 0.3);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 20px rgba(217, 70, 239, 0.08);
+}
+.theme-purple .layer-database {
+  border-color: rgba(139, 92, 246, 0.3);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 20px rgba(139, 92, 246, 0.08);
+}
+.theme-purple:hover .layer-frontend {
+  border-color: rgba(168, 85, 247, 0.7);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6), 0 0 35px rgba(168, 85, 247, 0.35);
+}
+.theme-purple:hover .layer-backend {
+  border-color: rgba(217, 70, 239, 0.6);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), 0 0 30px rgba(217, 70, 239, 0.25);
+}
+.theme-purple:hover .layer-database {
+  border-color: rgba(139, 92, 246, 0.7);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), 0 0 35px rgba(139, 92, 246, 0.35);
+}
+.theme-purple .connector-line {
+  background: linear-gradient(180deg, 
+    rgba(168, 85, 247, 0.1) 0%, 
+    rgba(217, 70, 239, 0.8) 50%, 
+    rgba(139, 92, 246, 0.1) 100%
+  );
+}
+
+/* Theme: Violet / Pink / Odoo (ERP) */
+.theme-violet .layer-frontend {
+  border-color: rgba(139, 92, 246, 0.35);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 20px rgba(139, 92, 246, 0.1);
+}
+.theme-violet .layer-backend {
+  border-color: rgba(236, 72, 153, 0.3);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 20px rgba(236, 72, 153, 0.08);
+}
+.theme-violet .layer-database {
+  border-color: rgba(217, 70, 239, 0.3);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 20px rgba(217, 70, 239, 0.08);
+}
+.theme-violet:hover .layer-frontend {
+  border-color: rgba(139, 92, 246, 0.7);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6), 0 0 35px rgba(139, 92, 246, 0.35);
+}
+.theme-violet:hover .layer-backend {
+  border-color: rgba(236, 72, 153, 0.6);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), 0 0 30px rgba(236, 72, 153, 0.25);
+}
+.theme-violet:hover .layer-database {
+  border-color: rgba(217, 70, 239, 0.7);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), 0 0 35px rgba(217, 70, 239, 0.35);
+}
+.theme-violet .connector-line {
+  background: linear-gradient(180deg, 
+    rgba(139, 92, 246, 0.1) 0%, 
+    rgba(236, 72, 153, 0.8) 50%, 
+    rgba(217, 70, 239, 0.1) 100%
+  );
+}
+
+/* Theme: Amber / Orange / Cloud & DevOps */
+.theme-amber .layer-frontend {
+  border-color: rgba(245, 158, 11, 0.35);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 20px rgba(245, 158, 11, 0.1);
+}
+.theme-amber .layer-backend {
+  border-color: rgba(249, 115, 22, 0.3);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 20px rgba(249, 115, 22, 0.08);
+}
+.theme-amber .layer-database {
+  border-color: rgba(239, 68, 68, 0.3);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 20px rgba(239, 68, 68, 0.08);
+}
+.theme-amber:hover .layer-frontend {
+  border-color: rgba(245, 158, 11, 0.7);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6), 0 0 35px rgba(245, 158, 11, 0.35);
+}
+.theme-amber:hover .layer-backend {
+  border-color: rgba(249, 115, 22, 0.6);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), 0 0 30px rgba(249, 115, 22, 0.25);
+}
+.theme-amber:hover .layer-database {
+  border-color: rgba(239, 68, 68, 0.7);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), 0 0 35px rgba(239, 68, 68, 0.35);
+}
+.theme-amber .connector-line {
+  background: linear-gradient(180deg, 
+    rgba(245, 158, 11, 0.1) 0%, 
+    rgba(249, 115, 22, 0.8) 50%, 
+    rgba(239, 68, 68, 0.1) 100%
+  );
+}
+
